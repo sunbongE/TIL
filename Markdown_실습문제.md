@@ -2,7 +2,7 @@
 
 ## 1. 개요
 
-![pahkey_KRRKrp](Markdown_%E1%84%89%E1%85%B5%E1%86%AF%E1%84%89%E1%85%B3%E1%86%B8_%E1%84%84%E1%85%A1%E1%84%85%E1%85%A1%E1%84%86%E1%85%A1%E1%86%AB%E1%84%83%E1%85%B3%E1%86%AF%E1%84%80%E1%85%B5_%E1%84%86%E1%85%AE%E1%86%AB%E1%84%8C%E1%85%A6.assets/pahkey_KRRKrp.png)
+![pahkey_KRRKrp](Markdown_%EC%8B%A4%EC%8A%B5%EB%AC%B8%EC%A0%9C.assets/pahkey_KRRKrp.png)
 
 파이썬(Python)은 1990년 암스테르담의 귀도 반 로섬(Guido Van Rossum)이 개발한 인터프리터 언어이다. 귀도는 파이썬이라는 이름을 자신이 좋아하는 코미디 쇼인 "몬티 파이썬의 날아다니는 서커스(Monty Python’s Flying Circus)"에서 따왔다고 한다.
 
