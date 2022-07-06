@@ -13,5 +13,5 @@
 
 - git
   - [git_학습내용](git_study.md)
-  - [gitignore](.gitignore.md)
+  - [gitignore](gitignore_st.md)
 
