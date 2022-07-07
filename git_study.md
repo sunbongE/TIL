@@ -56,6 +56,8 @@
 
 **git status : 상태를 알려줌**
 
+**git restore --staged 파일명 : 수정내용 삭제**
+
 **git add <파일명> : 특정 파일/폴더의 변경사항 추가**
 
 **git commit -m <메시지> : 커밋, 커밋 내용 입력**
