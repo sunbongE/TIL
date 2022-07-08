@@ -111,3 +111,24 @@ Q. 왜 이렇게 하나요?
 ## 도식화
 
 ![image-20220707191129980](Branch.assets/image-20220707191129980-16571886933581.png)
+
+---
+
+### merge 연습
+
+
+
+```bash
+qkrxo@SUNBONG MINGW64 ~/OneDrive/바탕 화면/머지연습 (master)
+$ git log --oneline --graph
+*   ca8e95d (HEAD -> master) Merge branch 'example' 해야함
+|\
+| * e63513b (example) 수정
+* | 10f7d09 파일만듬
+|/
+* 5747849 addfile
+* 2921010 add 2.txt
+* d5bfc8f add
+
+```
+
