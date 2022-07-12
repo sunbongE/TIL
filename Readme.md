@@ -4,7 +4,7 @@
 
 ## 목차
 
-- [codeup_문제풀이](./Python)
+- [codeup_문제풀이](./codeup)
 - [실습문제풀이](python실습문제)
 - [마크다운](./마크다운학습)
 - [CLI](CLI.md)

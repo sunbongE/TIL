@@ -1,11 +1,19 @@
-number = [3, 10, 20]
+# 1~n까지의 합
 
-#평균~~ 
-count = 0
-sum = 0
+n = 5
+a = 1
+result = 1
 
-for i in number :
-    count += 1
-    sum += i
-avg = sum/count
-print(int(avg))
+while a <= n :
+    result *= a
+    a += 1
+print(result)
+
+
+# a = 1
+# result = 1
+
+# for a in range(1,6):
+#     result *= a 
+
+# print(result)

@@ -8,6 +8,14 @@ for i in range(len(numbers)):
         max = numbers[i]
     
 print(max)
+# 맞는 풀이...
+# numbers = [0, 20, 100]
+# max = numbers[0]
+
+# for i in number:
+#     if max < i :
+#         max = i
+# print(max)
 
 # 최댓값을 구하려면 하나씩 비교를? 해야 하니까 아마도 for문으로 뽑아서 비교를 해야 할까?
 

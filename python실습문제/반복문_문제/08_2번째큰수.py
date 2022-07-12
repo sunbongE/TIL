@@ -1,11 +1,13 @@
-numbers = [0, 20, 100]
-max = 0
-second = 0
+numbers = [0, 20, 100, 40]
+max = numbers[0]
+second = numbers[0] #음수 대비해서 변수를 0으로 저장하면 안된다.
 
 for i in numbers:
     if i > max :
-        second = max
+        second = max  #먼저 두번째로 큰수를 기록하고 최댓값을 넘겨야 한다.
         max = i
+    elif second < i < max :
+        second = i
     
 print(second)
 
