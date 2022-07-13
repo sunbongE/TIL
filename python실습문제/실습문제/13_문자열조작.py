@@ -3,3 +3,11 @@
 world = 'apple'
 
 print(world[::-1])
+
+#강사님 풀이
+
+word = 'apple'
+result = ''
+for char in word:
+    result = char + result
+print(result)
