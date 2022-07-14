@@ -20,6 +20,7 @@ for i in word:
 
 print(cnt)
 
+# 다른풀이
 word = 'apple'
 vowels = ['a', 'e', 'i', 'o', 'u']
 vowels_cnt = 0

@@ -10,10 +10,9 @@ for i in word:
     if i == 'a':
         print(index_a-1)
         break       
-    # elif index_a == len(word):  
-    #     print(-1)   
-    else:
-        index_a = -1             
+    elif index_a == len(word):  
+        print(-1)   
+   
 
 # 반복문으로 단어 한글자를 지날 때 마다 변수에 1 더해주고 만약 a를 만나면 더한 변수의 값-1 을 출력 1을 빼는 이유는 인덱스가 0부터 시작했기 때문이다. 나는 0에 1씩 더했으니 빼는게 맞다.
 
