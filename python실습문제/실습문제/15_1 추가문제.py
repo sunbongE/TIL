@@ -15,3 +15,10 @@ for i in word:
 
 
 
+
+# 강사님 풀이 
+word = 'banana'
+
+for idx in range(len(word)):
+    if word[idx] == 'a':
+        print(idx, end = ' ')

@@ -20,11 +20,22 @@ for i in word:
     
     d[i] += cnt
     cnt = 0
-    
-
 
 for k, v in d.items():
     print(k,v)
+
+#강사님 풀이
+word = 'banana'
+result = {}
+
+for char in word:
+    result[char] = result.get(char, 0) + 1
+   
+for key in result:
+    print(key,result[key])
+
+
+
 
 
 # 다른 풀이

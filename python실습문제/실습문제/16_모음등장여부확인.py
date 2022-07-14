@@ -29,3 +29,13 @@ for x in word:
         if x ==y:
             vowels_cnt += 1
 print(vowels_cnt)
+
+#강사님 풀이
+
+word = 'apple'
+cnt = 0
+
+for char in word:
+    if char in 'aeiou':
+        cnt += 1
+print(cnt)
