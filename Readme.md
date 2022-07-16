@@ -8,6 +8,7 @@
 - [CLI](CLI.md)
 - [git](./git)
 - [원격저장소_clone,branch](./원격저장소,Clone,branch)
+- [Python](./python_theory)
 
 ### 실습🔥🔥
 
