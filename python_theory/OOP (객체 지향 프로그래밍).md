@@ -50,6 +50,14 @@ programming
 
 
 
+함수 정의 : input이 오면 output을 보낸다.
+
+
+
+generate : 
+
+
+
 
 
 
