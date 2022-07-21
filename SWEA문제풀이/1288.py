@@ -4,7 +4,7 @@ sys.stdin = open('1288.txt','r')
 
 
 t = int(input())
-s=0
+
 for i in range(1,t+1):
     n = int(input())
     c = 0
