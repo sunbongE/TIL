@@ -17,6 +17,6 @@ for i in aa:
         max_ = aa[i]
         maxi=i
 print(maxi)
-# print(aa)
+print(aa)
 # print(dic)
     
