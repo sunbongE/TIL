@@ -44,4 +44,4 @@ FIFO(first in first out,) : 먼저 들어간 데이터가 먼저 나온다.
 
 사용법 : from collections import deque
 
-deque()으로 바로 형변환 가능!
+deque()으로 바로 형변환 가능!, 속도차이가 대략 4초정도 이므로 deque를 사용하는 것이 좋다.
