@@ -10,6 +10,7 @@ dic = {}
 for _ in range(n+n-1):
     name = sys.stdin.readline().strip()
     dic[name] = dic.get(name,0) + 1
+
 for i in dic:
-    if dic[i] %2 == 1:
+    if dic[i] %2  == 1:
         print(i)
