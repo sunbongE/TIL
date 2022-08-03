@@ -9,19 +9,27 @@ while 1:
         break
     small_ = []
     big_ = []
-    
+    # ([ (([( [ ] ) ( ) (( ))] )) ])
+    # '(',
+    # 
     for w in st:
-        
+        cnt = 0
         if w == '(':
             small_.append(w)
-        elif w == ')':
-            if small_ : 
+        elif w == ')': # ) 면서
+            
+            if small_ : # 소괄호가 비어있지않고
+            
                 small_.pop()
+                
+                    
             else: print('no'); break
         if w == '[':
             big_.append(w)
+            cnt += 1
         elif w == ']':
-            if big_: big_.pop()
+            if big_: big_.pop(); cnt -= 1
+                
             else: print('no'); break
     else:
         if len(big_) == 0 and len(small_) == 0:
