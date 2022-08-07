@@ -7,35 +7,23 @@ while 1:
     st = input()
     if st == '.':
         break
-    small_ = []
-    big_ = []
-    # ([ (([( [ ] ) ( ) (( ))] )) ])
-    # '(',
-    # 
-    for w in st:
-        cnt = 0
-        if w == '(':
-            small_.append(w)
-        elif w == ')': # ) 면서
-            
-            if small_ : # 소괄호가 비어있지않고
-            
-                small_.pop()
-                
-                    
-            else: print('no'); break
-        if w == '[':
-            big_.append(w)
-            cnt += 1
-        elif w == ']':
-            if big_: big_.pop(); cnt -= 1
-                
-            else: print('no'); break
+    situation = []
+    temp = True
+    
+    for i in st:
+        if i == '(' or i == '[':
+            situation.append(i)
+        elif i == ')':
+            if not situation or situation[-1] == '[':
+                temp = False
+            elif situation[-1] == '(':
+                situation.pop()
+        elif i ==']':
+            if not situation or situation[-1] == '(':
+                temp = False
+            elif situation[-1] == '[':
+                situation.pop()
+    if temp == True and not situation:
+        print('yes')
     else:
-        if len(big_) == 0 and len(small_) == 0:
-            print('yes')
-        
-        else:
-            print('no')
-
-#Help( I[m being held prisoner in a fortune cookie factory)].
+        print('no')
