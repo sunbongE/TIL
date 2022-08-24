@@ -11,6 +11,8 @@ Object - Relational - Mapping
 **객체로 DB를 조작한다.**
 
 ```python
+python manage.py shell_plus # 터미널에 입력, 여기서 해야함
+
 Genre.objects.all()
 
 #select * from Genre 와 같은 의미
@@ -83,6 +85,23 @@ Genre.objects.get(id=1)
 Genre.objects.filter(id=3)
 #<QuerySet [<Genre: Genre object (3)>]>
 ```
+
+
+
+### Update
+
+```python
+# 1. genre 객체 활용
+genre = Genre.object.get(id=1)
+
+# 2. genre 객체 속성변경
+genre.name = '트로트'
+
+# 3. genre 객체 저장
+genre.save()
+```
+
+
 
 
 
