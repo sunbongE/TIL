@@ -1,1 +1,27 @@
 /* 아래에 CSS를 작성해주세요. */
+* {
+    box-sizing: border-box;
+  }
+.title{
+    text-align: center;
+}
+.subtitle {
+    font-size: 12px;
+}
+
+.card {
+    width: 900px;
+    display: flex;
+    margin: 0%;
+    justify-content: flex-end;
+}
+
+.card-item {
+    width: 300px;
+    margin:4px;
+
+}
+.img-size {
+    width: 100%;
+    border-radius: 1rem;
+}
