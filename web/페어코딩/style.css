@@ -1,0 +1,129 @@
+.header{
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    height: 80px;
+    background-color: #fff;
+  }
+  
+  .header-logo{
+    height: 60px;
+  }
+  ul{
+    list-style: none;
+    color: gray;
+  }
+  
+  .header-list{
+    display:flex;
+    margin-bottom:0;
+  }
+  .list-margin{
+    margin-right: 1rem;
+  }
+  
+  .list-margin a{
+    color: gray;
+  }
+  .list-margin a:hover{
+    color: gold;
+  }
+  
+  /* Banner */
+  .banner {
+    background-image: url(./images/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .banner h1 {
+    font-weight: 700;
+    letter-spacing: 3px;
+  }
+  
+  
+  /* Board */
+  .board {
+    display: flex;
+    width: 100%;
+  }
+  
+  .genre {
+    width: 20%;
+    padding: 1rem;
+  }
+  
+  .genre__list {
+    padding: 0;
+  }
+  
+  .genre__list__item {
+    padding: 5px 0;
+  }
+  .genre__list__item a {
+    color: black;
+  }
+  a:hover{
+    text-decoration: none;
+  }
+  .movie-wrap {
+    width: 80%;
+  }
+  
+  .movie-rank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 24px 24px 0 24px;
+    background-color: #EEEEEE;
+  }
+  
+  .movie-rank__list {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  .movie-rank__list__item img {
+    width: 300px;
+    border-radius: 15px;
+  }
+  
+  .movie-title {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0 24px;
+  }
+  .movie-title p {
+    width: 300px;
+    text-align: center;
+  }
+  .footer {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    height: 40px;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+  }
+  .footer-text{
+    vertical-align: middle;
+    color: #fff;
+    margin: 0;
+  }
+  .aa{
+    height: 1000rem;
+  }
+
+  body{
+    height: 1000rem;
+  }
