@@ -1,5 +1,3 @@
- 
-from array import array
 import sys
 sys.stdin = open('t.txt','r')
 from pprint import pprint
@@ -8,33 +6,29 @@ from pprint import pprint
 # 범위 지정하고 값이 0이 아니면 이동 
 # 그렇지 않다면 다음 방향으로 탐색 
 #  #
-delta_x = [0,1,0,-1]
-delta_y = [1,0,-1,0]
-for t in range(int(input())):
-   
+
+dx =[1, 0, -1, 0]
+dy =[0, 1, 0, -1]
+
+for _ in range(int(input())):
     N = int(input())
-    arr = [[0]*N for _ in range(N)]
-    # pprint(mat)
-    col, row = 0,0
-    v = 0
-    arr[col][row] = 1
-    dcol = [-1,0,1,0]
-    drow = [0,1,0,-1]
-
-    for i in range(1,N*N+1):# 델타 탐색 
-        arr[col][row] = i
-        col += dcol[v]
-        row += drow[v]
-
-        if col < 0 or row < 0 or N <= col or N <= row or arr[col][row] != 0:
-            col -= dcol[v]
-            row -= drow[v]
-
-            v = (v+1) % 4 
-            col = col + dcol[v]
-            row += drow[v]
-    print(f'#{t+1}')
-    for i in arr:
-        for j in i:
-            print(j,end=' ')
+    arr= [[0]*N for _ in range(N)]
+    D = 0
+    x, y = 0, 0
+    cnt = 1
+    arr[y][x] = cnt
+    while cnt != N*N:
+        nx = x + dx[D]
+        ny = y + dy[D]
+        if 0 <= nx < N and 0 <= ny < N and arr[ny][nx] == 0:
+            x, y = nx, ny 
+            cnt += 1
+            arr[y][x] = cnt
+        else:
+            D = (D + 1) % 4
+    print('#',_+1,sep='')
+    for i in range(N):
+        for j in range(N):
+            print(arr[i][j],end=' ')
         print()
+
