@@ -27,8 +27,6 @@ for _ in range(int(input())):
         else:
             D = (D + 1) % 4
     print('#',_+1,sep='')
-    for i in range(N):
-        for j in range(N):
-            print(arr[i][j],end=' ')
-        print()
+    for lst in arr:
+        print(*lst)
 
