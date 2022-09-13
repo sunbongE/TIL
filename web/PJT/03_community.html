@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Community</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+<style>
+    .nav-color {
+        background-color: white;
+    }
+
+    .list-style {
+        list-style: none;
+    }
+
+    .lis {
+        text-decoration-line: none;
+
+    }
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+        <div class="container-fluid">
+            <a class="nav-link active text-white" aria-current="page" href="./web_pjt.html"><img src="./logo.png" alt=""
+                    width="70" height="70"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="text-light navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link text-white-50" href="./02_home.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="./03_community.html">Community</a>
+                    </li>
+                    <li class="nav-item ">
+                        <button type="button" class="btn text-white-50 border-0" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal">
+                            Login
+                        </button>
+
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Modal title</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <!-- 모달 바디 -->
+                <div class="modal-body">
+                    <!-- email -->
+                    <div class="mb-3">
+                        <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                            placeholder="name@example.com">
+                        <p class="text-black-50">We'll never share your email with anyone else.</p>
+                    </div>
+
+                    <!-- password -->
+                    <div class="mb-3">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <input type="password" class="form-control" id="inputPassword">
+                    </div>
+                    <!-- check -->
+                    <div class="mb-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Submit</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Community -->
+    <section>
+        <!-- header -->
+        <div class="text-center py-5">
+            <h2>Community</h2>
+        </div>
+        <!-- main -->
+        <div class=" container">
+            <div class="row">
+                <!-- 왼쪽 게시판 목록 -->
+                <div class="col col-md-12 col-lg-2">
+                    <div class="list-group">
+                        <button type="button"
+                            class="list-group-item list-group-item-action text-primary">Boxoffice</button>
+                        <button type="button"
+                            class="list-group-item list-group-item-action text-primary">Movies</button>
+                        <button type="button"
+                            class="list-group-item list-group-item-action text-primary">Genres</button>
+                        <button type="button"
+                            class="list-group-item list-group-item-action text-primary">Actors</button>
+                    </div>
+                </div>
+                <!-- 테이블 -->
+                <div class="col col-lg-10 d-none d-lg-table">
+                    <table class="table table-striped ">
+                        <thead class="table-dark">
+                            <th>영화 제목</th>
+                            <th>글 제목</th>
+                            <th>작성자</th>
+                            <th>작성 시간</th>
+                        </thead>
+                        <tbody>
+                            <!-- 1 -->
+                            <tr>
+                                <td>Great Movie title</td>
+                                <td>Best Movie Ever</td>
+                                <td>user</td>
+                                <td>1 minute ago</td>
+                            </tr>
+                            <!-- 2 -->
+                            <tr>
+                                <td>Great Movie title</td>
+                                <td>Movie Test</td>
+                                <td>user</td>
+                                <td>1 minute ago</td>
+                            </tr>
+                            <!--  3-->
+                            <tr>
+                                <td>Great Movie title</td>
+                                <td>Movie Test</td>
+                                <td>user</td>
+                                <td>1 minute ago</td>
+                            </tr>
+                            <!--  4-->
+                            <tr>
+                                <td>Great Movie title</td>
+                                <td>Movie Test</td>
+                                <td>user</td>
+                                <td>1 minute ago</td>
+                            </tr>
+                            <!-- 5 -->
+                            <tr>
+                                <td>Great Movie title</td>
+                                <td>Movie Test</td>
+                                <td>user</td>
+                                <td>1 minute ago</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- 작은 화면card -->
+            <div class="row row-cols-1">
+                <div class="col d-lg-none my-2">
+                    <div class="card p-2">
+                        <h5>Best Movie Ever</h5>
+                        <h6>Great Movie Title</h6>
+                        <p>user</p>
+                        <p>1 minute ago</p>
+                    </div>
+                </div>
+                <div class="col d-lg-none my-2">
+                    <div class="card p-2">
+                        <h5>Movie Test</h5>
+                        <h6>Great Movie Title</h6>
+                        <p>user</p>
+                        <p>1 minute ago</p>
+                    </div>
+                </div>
+                <div class="col d-lg-none my-2">
+                    <div class="card p-2">
+                        <h5>Movie Test</h5>
+                        <h6>Great Movie Title</h6>
+                        <p>user</p>
+                        <p>1 minute ago</p>
+                    </div>
+                </div>
+                <div class="col d-lg-none my-2">
+                    <div class="card p-2">
+                        <h5>Movie Test</h5>
+                        <h6>Great Movie Title</h6>
+                        <p>user</p>
+                        <p>1 minute ago</p>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- 페이지 -->
+            <nav aria-label="Page navigation example">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+
+    </section>
+    <!-- 최하단 -->
+    <div class="text-center">1-14 web pj</div>
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
