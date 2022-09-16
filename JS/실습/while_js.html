@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반복문</title>
+</head>
+
+<body>
+    <script>
+        // while
+        let i = 0
+
+        while (i < 6) {
+            console.log(i)
+            i += 1
+        }
+
+        // for
+        for (let i = 0; i < 6; i++) {
+            console.log(i)
+        }
+        // for in -> key순회
+        const capitals = {
+            kr: 'seoul',
+            france: 'paris',
+            US: 'ws'
+        }
+        for (let capital in capitals) {
+            console.log(capital)
+        }
+        // for of
+        const fruits = ['딸기', '바나나', '사과']
+        for (let fruit of fruits) {
+            fruit = fruit + ' 시러~!'
+            console.log(fruit)
+        }
+    </script>
+</body>
+
+</html>

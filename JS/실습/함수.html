@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+
+<body>
+    <script>
+        // Rest Parameter
+        const restArgs = function (a1, a2, ...restArgs) {
+            return [a1, a2, restArgs]
+        }
+        console.log(restArgs(1, 2, 3, 4, 5)) //[1, 2, Array(3)]
+        console.log(restArgs(1, 2)) //[1, 2, Array(0)]
+
+        // spreaOpr
+        const spreadOpr = function (a1, a2, a3) {
+            return a1 + a2 + a3
+        }
+        const num = [1, 2, 3]
+        console.log(spreadOpr(...num))
+
+        // 함수 표현식 
+        const add = function (args) { }
+        // 함수 선언식
+        function sub(args) { }
+
+        console.log(typeof add)
+        console.log(typeof sub)
+    </script>
+</body>
+
+</html>
