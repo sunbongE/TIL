@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>블록스코프</title>
+</head>
+
+<body>
+    <script>
+        // 블록 스코프(if,for 안에 있는 중괄호)
+        let x = 1
+        if (x === 1) { // x가 1이면 
+            let x = 2 // x에 2를 할당할거고
+            console.log(x) // x를 출력
+        }
+        console.log(x) // 블록 스코프 밖에서 접근 안됨 그래서 값이 1
+    </script>
+</body>
+
+</html>
