@@ -1,8 +1,3 @@
 a=[1, 1, 3, 1, 2]
-n=len(a)
- 
-for i in range(n-2,-1,-1):# 3,-1,-1
-    print(a[i])
-#[1, 1, 3, 1, 2]
-# 0  1  2  3  4
-# -5 -4 -3 -2 -1  역방향
+s = a.pop(a.index(max(a)))
+print(s)
