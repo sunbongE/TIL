@@ -2,3 +2,19 @@
   <input type="password" name="password" id="password">
   <input type="password" name="password_confirmation" id="password_confirmation">
 </form>
+<script>
+  const password2 = document.querySelector('#password_confirmation')
+  password2.addEventListener('blur', function () {
+    const password1 = document.querySelector('#password')
+
+    if (password1.value !== password2.value) {
+      alert('다른데요?')
+    }
+    else if (password1.value.length < 8) {
+      alert('짧은데요?')
+    }
+  })
+
+
+
+</script>

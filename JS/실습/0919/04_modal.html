@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -28,18 +29,20 @@
     }
   </style>
 </head>
+
 <body>
+  <!--  -->
   <button id="modal-btn">모달 버튼</button>
   <div id="modal-content" class="modal-overlay">모달
     <button id="modal-cancel-btn">취소 버튼</button>
   </div>
 
   <script>
-    // 모달 버튼이 클릭되면
-    const modalToggle = function() {
+    const modalToggle = function () {
       document.querySelector('#modal-content').classList.toggle('active')
     }
-    
+
+    // 모달 버튼이 클릭되면
     const modalBtn = document.querySelector('#modal-btn')
     modalBtn.addEventListener('click', modalToggle)
 
@@ -53,4 +56,5 @@
 
   </script>
 </body>
+
 </html>

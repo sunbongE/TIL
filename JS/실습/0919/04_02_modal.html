@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .modal-style {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: blueviolet;
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            display: none;
+        }
+
+        .active {
+            display: flex;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="modal-bnt">modal</button>
+    <div class="modal-style" id="modal">모달
+        <button id="modal-cancle">버튼</button>
+    </div>
+
+
+
+
+
+    <script>
+        // modal-toggle 
+        const modaltoggle = function () {
+            document.querySelector('#modal').classList.toggle('active')
+        }
+
+        const modalbnt = document.querySelector('#modal-bnt')
+        modalbnt.addEventListener('click', modaltoggle)
+
+        const modalcancle = document.querySelector('#modal-cancle')
+        modalcancle.addEventListener('click', modaltoggle)
+
+        const modalcanclediv = document.querySelector('#modal')
+        modalcanclediv.addEventListener('click', modaltoggle)
+    </script>
+</body>
+
+</html>
