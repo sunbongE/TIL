@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<>
+    <!-- 1 -->
+    <button type="button">버튼</button>
+    <!-- 2 -->
+    <button onclick="alertMessage()">나를 눌러</button>
+    <!-- 3 -->
+    <button id="my-button">누르시오</button>
+    <!-- 4 -->
+    <p id="my-paragraph"></p>
+
+    <form action="#">
+        <label for="my-text-input">내용을 입력</label>
+        <input type="text" id="my-text-input">
+    </form>
+    <!-- 5 -->
+    <h2>Chang My Color</h2>
+    <label for="change-color-input">원하는 색을 영어로 입력</label>
+    <input id="change-color-input">
+    <hr>
+
+
+    <script>
+        // 1
+        const btn = document.querySelector('button')
+        btn.addEventListener('click', function (event) {
+            alert('버튼 클릭됨')
+            console.log(event)
+        })
+        // 2
+        const alertMessage = function () {
+            alert("얍")
+        }
+        // 3 2번 함수를 불러와서 사용한 모습
+        const mybutton = document.querySelector('#my-button')
+        mybutton.addEventListener('click', alertMessage)
+
+        // 4 input
+        const mytextinput = document.querySelector('#my-text-input')
+
+        mytextinput.addEventListener('input', function (event) {
+            const myptag = document.querySelector('#my-paragraph')
+            myptag.innerText = event.target.value
+        }) // input에 입력이 되면 p에 입력값을 삽입하여 나타냄
+
+        // 5 색 바꾸기
+        const colorinput = document.querySelector('#change-color-input')
+
+        const changecolor = function (event) {
+            const h2tag = document.querySelector('h2')
+            h2tag.style.color = event.target.value
+        }
+        colorinput.addEventListener('input', changecolor)
+
+
+    </script>
+    </body>
+
+</html>

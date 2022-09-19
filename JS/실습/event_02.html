@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event취소</title>
+</head>
+
+<body>
+    <!-- 1 -->
+    <input type="checkbox" name="" id="my-checkbox">
+
+    <!-- 2 -->
+    <form action="/articles/" id="my-form">
+        <input type="text" name="" id="">
+        <input type="submit" value="제출">
+    </form>
+
+    <!-- 3 -->
+    <a href="https://google.com/" target="_blank" id="my-link">구글로 가즈아</a>
+
+
+
+
+    <script>
+        // 1
+        const checkbox = document.querySelector('#my-checkbox')
+
+        checkbox.addEventListener('click', function (even) {
+            event.preventDefault() // 이게 이벤트를 막음
+            console.log(event)
+        })
+
+        // 2
+        const formtag = document.querySelector('#my-form')
+
+        formtag.addEventListener('submit', function (event) {
+            console.log(event)
+            event.preventDefault()
+            event.target.reset()
+        })
+
+        // 3 구글로 갈 수 없게 만들어버림
+        const atag = document.querySelector('#my-link')
+
+        atag.addEventListener('click', function (event) {
+            console.log(event)
+            event.preventDefault()
+        })
+
+        // 4
+        document.addEventListener('scroll', function (event) {
+            console.log(event)
+            event.preventDefault()
+        })
+    </script>
+</body>
+
+</html>
