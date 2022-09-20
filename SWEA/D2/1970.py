@@ -1,3 +1,4 @@
+# 잔돈 주기
 import sys
 sys.stdin = open('1970.txt')
 

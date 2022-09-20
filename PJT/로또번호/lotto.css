@@ -1,0 +1,43 @@
+.box {
+    text-align: center;
+}
+
+.numbox {
+    height: 15rem;
+    width: 50rem;
+    box-sizing: border-box;
+    border: solid;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+
+}
+
+.ball {
+    border-radius: 50%;
+    margin: 0.5rem;
+    width: 8rem;
+    height: 8rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bnt {
+    margin-top: 2rem;
+}
+
+.ball-container {
+    display: flex;
+}
+
+.ct {
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin: auto;
+    justify-content: space-between;
+
+}
