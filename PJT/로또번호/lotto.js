@@ -1,13 +1,15 @@
 const inbnt = document.querySelector('#in-bnt')
 inbnt.addEventListener('click', function () {
-    // 컨테이너 만들었고
+    // ball container
     const ballcontainer = document.createElement('div')
     ballcontainer.classList.add('ball-container')
-    //  공 만들고
+    //  random nums
     const nums = _.sampleSize(_.range(1, 46), 6)
     console.log(nums)
 
     for (num of nums) {
+        // balldiv 
+        const balldiv = document.createElement('div')
         const ball = document.createElement('div')
         ball.classList.add('ball')
 
@@ -30,13 +32,14 @@ inbnt.addEventListener('click', function () {
             ball.style.backgroundColor = 'green'
         }
 
-        ballcontainer.appendChild(ball)
-        console.log(ballcontainer)
+        ballcontainer.appendChild(balldiv)
+        balldiv.appendChild(ball)
+        console.log(balldiv)
 
         const result = document.querySelector('#result')
-        result.appendChild(ball)
+        result.appendChild(ballcontainer)
     }
-
+    // reset bnt
     const resetbnt = document.querySelector('#reset-bnt')
     resetbnt.addEventListener('click', function () {
         result.innerHTML = ""
