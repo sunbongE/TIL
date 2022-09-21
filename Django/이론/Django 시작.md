@@ -64,5 +64,11 @@ ex ) 네이버 홈에 나오는 광고도 이와 같은 원리 같음
 
 ## Django 구조
 
+MTV 디자인 패턴을 가짐
 
+model : 데이터 관련
+
+template : 화면 관련
+
+view : model & template 중간 처리 및 응답 반환
 
