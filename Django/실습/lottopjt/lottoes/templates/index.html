@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotto</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <style>
+        .lotball {
+            display: block;
+            width: 150px;
+            height: 150px;
+            margin: 50px auto 0;
+            border-radius: 50%;
+        }
+
+        .b2 {
+            background: radial-gradient(circle at 65% 15%, white 1px, aqua 3%, darkblue 60%, aqua 100%);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-3">인생 역전 가자</h1>
+        <div class="d-flex mb-3 justify-content-end ">
+            <button id="bnt" class="btn btn-warning" type="submit">인생 역전</button>
+        </div>
+
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_1 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result1 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_2 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result2 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_3 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result3 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_4 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result4 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_5 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result5 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+        <div class=" d-flex justify-content-center">
+            {% for num in lotnum_6 %}
+            <div class="">
+                <span class="mx-1 lotball b2 d-flex align-items-center justify-content-center fs-3 fw-bold">
+                    {{num}}
+                </span>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- 결과 -->
+        <p class=" fs-3 text-danger ">{{ result6 }}</p>
+        <!--  -->
+        <hr class="border border-danger border-1 opacity-50">
+
+    </div>
+    <script>
+        const bnt = document.querySelector('#bnt')
+        bnt.addEventListener('click', function () {
+            window.location.reload()
+        })
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
