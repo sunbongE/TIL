@@ -5,28 +5,30 @@ import sys
 from pprint import pprint
 sys.stdin = open('1206.txt')
 
-for case in range(2):
+for case in range(10):
     w = int(input())
     li=list(map(int, input().split()))
     arr = [[0]*w for _ in range(max(li))] # 이거 이용해서
     # for y in range(255,255-max(li),-1):
 
     for x in range(w):
-        for y in range(max(li)-1,max(li)-max(li),-1):
-            if y == max(li)-1-li[x]:
+        for y in range(max(li)-1,-1,-1): # 거꾸로 순회한다는 의미 - 바닥부터 머리까지
+            if y == max(li)-1-li[x]: #  y가 
                 break
-            # print(y,(max(li)-li[x]))
+            print(y,(max(li)-li[x]))
             arr[y][x] = 1
     # 건물 구현했고 이제 비교하면됨 가로 순회
+# pprint(arr)
     ans = 0
-    for y in range(max(li)-1,max(li)-max(li),-1):
+    for y in range(max(li)-1,-1,-1):
         cnt = 0
         for x in range(2,w-2):
-            if arr[y][x-1] + arr[y][x-2] + arr[y][x+1] + arr[y][x+2] == 0:
+            if arr[y][x] == 1 and arr[y][x-1] + arr[y][x-2] + arr[y][x+1] + arr[y][x+2] == 0:
                 cnt+=1
+                arr[y][x] = 7
         ans += cnt
         #     print(arr[y][x-1],arr[y][x],arr[y][x+1])
         # print()
-    print(cnt)
+    print(f'#{case+1} {ans}')
 # pprint(arr)
 
