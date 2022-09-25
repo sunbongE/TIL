@@ -5,30 +5,47 @@ import sys
 from pprint import pprint
 sys.stdin = open('1206.txt')
 
-for case in range(10):
-    w = int(input())
-    li=list(map(int, input().split()))
-    arr = [[0]*w for _ in range(max(li))] # 이거 이용해서
-    # for y in range(255,255-max(li),-1):
+# for case in range(1):
+#     w = int(input())
+#     li=list(map(int, input().split()))
+#     arr = [[0]*w for _ in range(max(li))] # 이거 이용해서
+#     # for y in range(255,255-max(li),-1):
 
-    for x in range(w):
-        for y in range(max(li)-1,-1,-1): # 거꾸로 순회한다는 의미 - 바닥부터 머리까지
-            if y == max(li)-1-li[x]: #  y가 
-                break
-            print(y,(max(li)-li[x]))
-            arr[y][x] = 1
-    # 건물 구현했고 이제 비교하면됨 가로 순회
-# pprint(arr)
-    ans = 0
-    for y in range(max(li)-1,-1,-1):
-        cnt = 0
-        for x in range(2,w-2):
-            if arr[y][x] == 1 and arr[y][x-1] + arr[y][x-2] + arr[y][x+1] + arr[y][x+2] == 0:
-                cnt+=1
-                arr[y][x] = 7
-        ans += cnt
-        #     print(arr[y][x-1],arr[y][x],arr[y][x+1])
-        # print()
-    print(f'#{case+1} {ans}')
+#     for x in range(w):
+#         for y in range(max(li)-1,-1,-1): # 거꾸로 순회한다는 의미 - 바닥부터 머리까지
+#             if y == max(li)-1-li[x]: #  y가 
+#                 break
+#             print(y,(max(li)-li[x]))
+#             arr[y][x] = 1
+#     # 건물 구현했고 이제 비교하면됨 가로 순회
+# # pprint(arr)
+#     ans = 0
+#     for y in range(max(li)-1,-1,-1):
+#         cnt = 0
+#         for x in range(2,w-2):
+#             if arr[y][x] == 1 and arr[y][x-1] + arr[y][x-2] + arr[y][x+1] + arr[y][x+2] == 0:
+#                 cnt+=1
+#                 # arr[y][x] = 7
+#         ans += cnt
+#         #     print(arr[y][x-1],arr[y][x],arr[y][x+1])
+#         # print()
+#     # print(f'#{case+1} {ans}')
 # pprint(arr)
 
+input = sys.stdin.readline
+
+for test_case in range(1):
+    n = int(input())
+    lst = [*map(int, input().split())]
+    dx = [-2,-1,1,2]
+    result = 0
+    print(lst)
+    for i in range(2,n-2):
+        temp = []
+        for k in range(4):
+            x = i + dx[k]
+            if lst[x] < lst[i]:
+                temp.append(lst[i]-lst[x])
+        if len(temp) == 4:
+            result += min(temp)
+    # print(f'#{test_case} {result}')

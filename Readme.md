@@ -12,6 +12,7 @@
 - [Project](./python_project)
 - [DB](./DB/이론)
 - [Web](./web/이론)
+- [Django](./Django/이론)
 
 ### 실습🔥🔥
 
@@ -22,3 +23,5 @@
 - [DB](./DB/실습)
 
 - [Web](./web/실습)
+
+- [Django](./Django/실습)

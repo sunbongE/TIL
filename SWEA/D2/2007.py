@@ -1,4 +1,5 @@
 # 몇번 반복되는지 알아내는거
+from re import A
 import sys
 sys.stdin = open('2007.txt')
 for case in range(int(input())):
@@ -19,8 +20,10 @@ for case in range(int(input())):
         else:
             is_word += s
     print(f'#{case+1} {ans}')
-# T = int(input())
 
+    
+# -------------------------------------------------
+# T = int(input())
 # for tc in range(1, T+1):
     
 #     text = input()
@@ -42,3 +45,5 @@ for case in range(int(input())):
 # 한 글자씩 저장하다가 is_word의 첫 글자와 같은 글자가 나오면 
 # 음... 같은 글이 나오면 st에서 슬라이싱을 하는데 길이는 
 # is_word의 만큼 해서 같다면 단어인건가#
+
+
