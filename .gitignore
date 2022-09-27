@@ -4,6 +4,11 @@
 .csv
 *.pdf
 .pdf
+venv/
+/venv
+.idea/
+.txt
+*.txt
 # Created by https://www.toptal.com/developers/gitignore/api/python,django,visualstudiocode,macos,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,django,visualstudiocode,macos,windows
 
