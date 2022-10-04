@@ -32,6 +32,10 @@ gitbash 이용해서 환경을 만드는 방법
 
 6.  가상 환경 실행 ( $ source [가상 환경 이름]/Scripts/activate ) 
 
+7.  pip freeze > requirements.txt -> 가상환경 개발환경 상태를 저장한것
+
+ 
+
 
 
 ## 2. Django LTS 버전 설치
@@ -64,7 +68,13 @@ gitbash 이용해서 환경을 만드는 방법
 
 -----
 
+## 6. model작업
 
+db만드는 작업은 위과정을 마치고 
+
+setting에서 앱을 등록한 이후에 해야 가능하다!! 
+
+----
 
 ## 사용되는 명령어
 
@@ -84,4 +94,5 @@ gitbash 이용해서 환경을 만드는 방법
 | django-admin startproject [프로젝트명] . | 프로젝트 생성                         |
 | python manage.py runserver               | 장고 실행                             |
 | python manage.py startapp [이름]         | 앱 생성 (이름은 복수형을 권장)        |
-
+| python manage.py makemigrations          | 모델 설계                             |
+| python manage.py migrate                 | db 생성                               |
