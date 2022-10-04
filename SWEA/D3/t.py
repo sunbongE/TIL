@@ -1,3 +1,4 @@
 l=[123,222,333]
-
-print(l.pop(0))
+dd=4-2
+a=l.append(1,dd)
+print(l)
