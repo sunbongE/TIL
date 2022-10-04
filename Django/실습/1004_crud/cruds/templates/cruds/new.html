@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> 게시글 작성 </h1>
+    <form action="{% url 'cruds:create' %}" method="POST">
+        {% csrf_token %}
+        {{ article_form.as_p }}
+        <!-- <label for="title">제목:</label>
+        <input type="text" id="title" name="title">
+        <label for="content">내용:</label>
+        <textarea name="content" id="content" cols="30" rows="10"></textarea> -->
+        <input type="submit">
+        <a href="{% url 'cruds:index' %}">BACK</a>
+    </form>
+
+
+
+</body>
+
+</html>

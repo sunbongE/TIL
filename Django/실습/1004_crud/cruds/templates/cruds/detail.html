@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{ article.pk }}번 게시글 </h1>
+    <p>{{ article.created_at }} | {{ article.updated_at }}</p>
+    <p>{{ article.content }} </p>
+
+    <a href="{% url 'cruds:update' article.pk %}">수정하기</a>
+    <a href="{% url 'cruds:index' %}">BACK</a>
+
+</body>
+
+</html>
