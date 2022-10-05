@@ -172,7 +172,7 @@ def delete(request,pk):
 
 ### base.html 사용법
 
-![image-20221005142637055](C:/Users/qkrxo/AppData/Roaming/Typora/typora-user-images/image-20221005142637055.png)
+![image-20221005142637055](CRUD%EA%B3%BC%EC%A0%95.assets/image-20221005142637055.png)
 
 파일을 바탕이 되는 위치 최 상위에 만들어 준다.
 
