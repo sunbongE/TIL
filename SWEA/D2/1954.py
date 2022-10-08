@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('t.txt','r')
+sys.stdin = open('1954.txt','r')
 from pprint import pprint
 # 문제 분석 2중 리스트를 이용하는 문제인건 확실함
 # 델타 탐색을 해야함 시계방향으로 우 하 좌 상
