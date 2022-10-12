@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+{% comment %} nav {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-ligt bg-danger">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="{% url 'movies:index' %}"><img  src="{% static 'img/logo.png' %}" alt="" width='70px;' heigt='70px;' ></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active " aria-current="page" href="#"></a>
+          <a class="nav-link" href="#">소개</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+{% comment %} nav end {% endcomment %}
+<div class="container pt-5 ">
+
+    <h1 class='mb-5 text-center'>Review</h1>
+    {% if request.user.is_authenticated %}
+    <div class='d-flex justify-content-end '>
+      <a class="btn btn-primary" href="{% url 'movies:create' %}">Create</a>
+    </div>
+    {% endif %}
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Pk</th>
+            <th scope="col">Title</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for movie in movies %}
+           <tr>
+            <th scope="row">{{ movie.pk }}</th>
+            <td><a class="text-decoration-none" href="{% url 'movies:detail' movie.pk %}">
+                
+                {{ movie.title }}</a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+  </div>
+
+{% endblock %}

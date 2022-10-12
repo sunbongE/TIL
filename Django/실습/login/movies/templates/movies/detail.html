@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+  {% comment %} nav {% endcomment %}
+<nav class="navbar navbar-expand-lg navbar-ligt bg-danger">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'movies:index' %}"><img  src="{% static 'img/logo.png' %}" alt="" width='70px;' heigt='70px;' ></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active " aria-current="page" href="#"></a>
+        <a class="nav-link" href="#">이거</a>
+        <a class="nav-link" href="#">어렵네</a>
+        <a class="nav-link disabled">젠장</a>
+      </div>
+    </div>
+  </div>
+</nav>
+{% comment %} nav end {% endcomment %}
+  <div class="container pt-5">
+
+    <h1 class='text-center mb-5'>Title :
+      {{ movie.title }}
+    </h1>
+    <p>Summary :
+      {{ movie.summary }}</p>
+    <p>Time :
+      {{ movie.running_time }}</p>
+    <div class='d-flex justify-content-end'>
+      <a class="btn btn-outline-primary me-3" href="{% url 'movies:index' %}">Home</a>
+      <a class="btn btn-outline-success me-3" href="{% url 'movies:update' movie.pk %}">Modify</a>
+      <a class="btn btn-outline-danger me-3" href="{% url 'movies:delete' movie.pk %}">Delete</a>
+    </div>
+  </div>
+{% endblock %}
