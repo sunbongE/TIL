@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<div class="card mx-auto mt-5" style="width: 50%;">
+  <div class="card-header">
+      <h1>{{ user.username }}님의 프로필</h1>
+    </div>
+    <div class="card-body">
+
+      <p> email : {{ user.email }} </p>
+      <p>Full Name : {{ user.full_name }}</p>
+         
+        {% comment %} 여기는 models.py에서 User함수에 full_name을 설정해야 이름이 보인다. {% endcomment %}
+      
+      <a class='btn btn-outline-primary' href="{% url 'movies:index' %}">Home</a>
+      <a class='btn btn-outline-success' href="{% url 'accounts:update' %}">Modify</a>
+    </div>
+  </div>
+
+{% endblock content %}

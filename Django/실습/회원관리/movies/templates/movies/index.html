@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content %}
+  {% load django_bootstrap5 %}
+  {% bootstrap_css %}
+  {% bootstrap_javascript %}
+
+  <div class="container pt-5 ">
+
+    <h1 class='mb-5 text-center'>Review</h1>
+    {% if request.user.is_authenticated %}
+      <div class='d-flex justify-content-end '>
+        <a class="btn btn-primary" href="{% url 'movies:create' %}">Create</a>
+      </div>
+    {% endif %}
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Pk</th>
+          <th scope="col">Title</th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        {% for movie in movies %}
+          <tr>
+            <th scope="row">{{ movie.pk }}</th>
+            <td>
+              <a class="text-decoration-none" href="{% url 'movies:detail' movie.pk %}">
+
+                {{ movie.title }}</a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+
+{% endblock %}

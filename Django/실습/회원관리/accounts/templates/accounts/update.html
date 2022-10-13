@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+
+  <h1>프로필 업데이트</h1>
+  <form action="" method="POST">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class='btn btn-outline-primary' type="submit" value='Submit'>
+    <a class='btn btn-outline-primary' href="{% url 'movies:index' %}">Home</a>
+  </form>
+
+{% endblock content %}
