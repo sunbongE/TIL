@@ -17,6 +17,7 @@ def dfs(n):
                 v.append(chk)
             lst[i],lst[j] = lst[j],lst[i] # 123 
 
+            
 # 입력받기
 for case in range(1,1+int(input())):
     st, N = input().split() # 123 1
