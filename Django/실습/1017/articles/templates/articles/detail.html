@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block content %}
+  <div class="container">
+    <h1 class='text-center text-warning'>{{article.title}}</h1>
+    <div class="card mx-auto mb-5 mt-5" style=" width: 600px;">
+      <div class="card-header">
+        {% if article.image %}
+          <img src=" {{ article.image.url }}" class="card-img-top" alt="{{ article.image }}" width="470px;" height="388px;">
+        {% else %}
+          <img src=" {% static 'img/noimg.png' %}" class="card-img-top" alt="{{ article.image }}" width="470px;" height="388px;">
+
+        {% endif %}
+      </div>
+      <div class="card-body">
+        {{ article.content }}
+      </div>
+      <div class="card-footer">
+        <a href="{% url 'articles:update' article.pk %}" class="btn btn-outline-success float-end ">Modify</a>
+        <a href="{% url 'articles:delete' article.pk %}" class="btn btn-outline-danger float-end me-2">Delete</a>
+
+      </div>
+    </div>
+
+  </div>
+
+{% endblock content %}

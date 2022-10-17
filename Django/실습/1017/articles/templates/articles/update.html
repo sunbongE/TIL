@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <div class="container">
+
+    <h1 class='text-center mb-5 text-warning'>Update</h1>
+    <form class='text-warning' action="{% url 'articles:update' article.pk %}" method="POST" enctype="multipart/form-data">
+
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class=' d-flex justify-content-end '>
+
+        <input class="btn btn-outline-success mx-2 " type="submit" value='Submit'>
+        <a class="btn btn-outline-primary" href="{% url 'articles:index' %}">Home</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

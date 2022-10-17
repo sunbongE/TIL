@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      body {
+        background-color: black;
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+  </head>
+
+  <body>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="animate__animated animate__slideOutUp animate__delay-2s alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <nav class="navbar bg-dark mb-5">
+      <div class="container-fluid justify-content-start">
+        <a class="navbar-brand text-warning me-auto" href="{% url 'articles:index' %}">
+          <img src="{% static 'img/cat.png' %}" width="auto" height="30">
+          Home
+        </a>
+        <a href="{% url 'articles:create' %}">
+          <button type="button" class="btn btn-outline-warning">
+            <b>Create</b>
+          </button>
+        </a>
+      </div>
+    </nav>
+    <div class="d-flex justify-content-center mb-3">
+      <img src="{% static 'img/one.jpg' %}" width='80%;' height='300px;' alt="">
+    </div>
+    {% block content %}{% endblock content %}
+  </body>
+
+</html>

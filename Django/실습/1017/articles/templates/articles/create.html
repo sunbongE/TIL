@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <div class="container">
+    <form class='text-warning' action="{% url 'articles:create' %}" method="POST" enctype="multipart/form-data">
+
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <div class='d-flex justify-content-end'>
+
+        <input class="btn btn-outline-success mx-3" type="submit" value='Submit'>
+        <a class="btn btn-outline-primary" href="{% url 'articles:index' %}">Home</a>
+      </div>
+    </form>
+  </div>
+{% endblock content %}

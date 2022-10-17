@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% load static %}
+{% block content %}
+  <div class="container">
+
+    <div class="row pt-5">
+
+      {% for article in articles %}
+        <div class="col-6 col-lg-4 container-fluid mb-3">
+          <div class="card ">
+            {% if article.thumbnail %}
+              <img src=" {{ article.thumbnail.url }}" class="card-img-top" alt="{{ article.thumbnail }}" width="150px;" height="300px;">
+            {% else %}
+              <img src=" {% static 'img/noimg.png' %}" class="card-img-top" alt="{{ article.thumbnail }}" width="150px;" height="300px;">
+
+            {% endif %}
+            <div class="card-body">
+              <h4 class="card-title  ">{{article.title}}</h4>
+              <a href="{% url 'articles:detail' article.pk %}" class="btn btn-outline-primary d-block  ">Detail</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+{% endblock content %}
