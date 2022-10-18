@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class='p-5 ' style='border: 1px solid ; radius: 5px;'>
+
+    <h1 class=' mb-5 text-center'>게시판</h1>
+
+    <h3>게시글</h3>
+    <hr>
+    {% for article in articles %}
+      <p>
+        <a href="{% url 'articles:detail' article.pk  %}">{{article.title}}</a>
+      </p>
+      <hr>
+    {% endfor %}
+  </div>
+{% endblock content %}

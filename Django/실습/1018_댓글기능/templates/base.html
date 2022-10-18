@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <nav class="navbar bg-dark mb-5">
+      <div class="container-fluid justify-content-start">
+        <a class="navbar-brand text-warning me-auto" href="{% url 'articles:index' %}">
+          <img src="" width="auto" height="30">
+          Home
+        </a>
+        <a href="{% url 'articles:create' %}">
+          <button type="button" class="btn btn-outline-warning">
+            <b>게시글 작성</b>
+          </button>
+        </a>
+      </div>
+    </nav>
+    <div class="container pb-5">
+      {% block content %}{% endblock content %}
+    </div>
+  </body>
+
+</html>
