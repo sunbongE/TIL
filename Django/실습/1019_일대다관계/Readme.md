@@ -90,3 +90,15 @@
 
 - `GET` http://127.0.0.1:8000/accounts/[int:user_pk](int:user_pk)/
 - 회원이 작성한 게시글 목록 출력
+
+---
+
+### 결과물
+
+![1019](Readme.assets/1019-16661922196942.gif)
+
+
+
+**main**
+
+![image-20221020001250513](Readme.assets/image-20221020001250513-16661923731634.png)
