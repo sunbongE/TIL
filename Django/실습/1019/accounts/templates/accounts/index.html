@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='mb-5 text-center'>회원 목록 조회</h1>
+  <table class="table table-hover text-center">
+    <thead>
+      <tr>
+        <th scope="col">번호</th>
+        <th scope="col">아이디</th>
+        <th scope="col">이메일</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+        <tr>
+          <th scope="row">
+            {{ forloop.counter }}</th>
+          <td>
+            <a href="{% url 'accounts:detail' user.pk %}" class='text-dark text-decoration-none'>{{ user.username }}</a>
+          </td>
+          <td>{{ user.email }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

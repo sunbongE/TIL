@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="container p-5">
+      <h1 class='text-center'>Main</h1>
+      <br>
+      <a href="{% url 'articles:index' %}" class='btn btn-primary d-block my-3'>
+        게시판</a>
+      <a href="{% url 'accounts:index' %}" class='btn btn-primary d-block'>
+        회원 목록</a>
+
+      {% if user.is_authenticated %}
+        <a href="{% url 'accounts:logout' %}" class='btn btn-primary d-block my-3'>
+          로그아웃</a>
+      {% else %}
+        <a href="{% url 'accounts:signup' %}" class='btn btn-primary d-block my-3'>
+          회원 가입</a>
+      {% endif %}
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+  <div>
+    <h1>프로필 업데이트</h1>
+    <form action="" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        회원탈퇴
+      </a>
+      {% bootstrap_button button_type="submit" button_class="btn-primary" content="수정완료" %}
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" style="font-size:20px;">
+          정말 끝인가요..?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">돌아가기</button>
+          <a type="submit" class="btn btn-primary" href="{% url 'accounts:delete' %}">탈퇴하기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

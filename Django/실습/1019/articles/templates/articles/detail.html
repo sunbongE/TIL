@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_bootstrap5 %}
+{% block content %}
+<h1 class='text-center text-warning'>{{article.title}}</h1>
+    <div class="card mx-auto mb-5 mt-5" style=" width: 600px;">
+      <div class="card-header">
+        {% if article.image %}
+          <img src=" {{ article.image.url }}" class="card-img-top" alt="{{ article.image }}" width="470px;" height="388px;">
+        {% else %}
+          <img src=" {% static 'noimg.png' %}" class="card-img-top" alt="{{ article.image }}" width="470px;" height="388px;">
+
+        {% endif %}
+      </div>
+
+      <div class="card-body">
+        <p><b class='fs-3'>{{ article.content }}</b></p>
+        <a class='text-dark text-decoration-none' href="{% url 'accounts:detail' article.user.pk %}"><p class='text-muted'>작성자:{{ article.user.username }}</p></a>
+      </div>
+      <div class="card-footer">
+        {% comment %} 요청한 사용자와 글 작성한 사용자가 같으면 {% endcomment %}
+        {% if request.user == article.user %} 
+        <a href="{% url 'articles:update' article.pk %}" class="btn btn-outline-success float-end ">Modify</a>
+        <a href="{% url 'articles:delete' article.pk %}" class="btn btn-outline-danger float-end me-2">Delete</a>
+        {% endif %}
+      </div>
+    </div>
+
+
+  <div class='mt-3 p-3' style='border: 1px solid ; radius: 5px;'>
+    {% comment %} 댓글 {% endcomment %}
+
+    <h4 class=''>댓글 목록</h4>
+    {% if comments %}
+      <p class='text-muted'>
+       {{ comments.count }}개
+      </p>
+    {% endif %}
+    {% if request.user.is_authenticated %}
+      <form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+        {% csrf_token %}
+        {% bootstrap_form comment_form layout='inline'%}
+        <div class='d-flex justify-content-end'>
+          <input type="submit" value='글 작성' class='btn btn-success my-1'>
+        </div>
+      </form>
+    {% endif %}
+    <hr>
+    {% for comment in comments %}
+    {% if request.user == comment.user %}
+    <a href="{% url 'articles:comment_delete' article.pk comment.pk %}" class='btn btn-danger float-end'>삭제</a>
+    {% endif %}
+      <div class=''>
+        <p > {{ comment.user.username}}님 </p>
+        <p>{{ comment.content }}</p>
+      </div>
+      <hr>
+      <br>
+
+      {%empty%}
+      <p>댓글이 없어요 ㅠ_ㅠ</p>
+    {% endfor %}
+  </div>
+{% endblock content %}

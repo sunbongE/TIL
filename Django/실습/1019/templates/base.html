@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar bg-dark mb-5">
+      <div class="container-fluid justify-content-start">
+        <a class="navbar-brand text-warning" href="{% url 'articles:main' %}">
+          <img src="{% static 'logo2.png' %}" width="auto" height="30">
+        </a>
+        <a class='btn btn-outline-warning mx-2' href="">게시판</a>
+        <a class='btn btn-outline-warning  me-auto' href="">회원목록</a>
+        {% if user.is_authenticated %}
+          <a class="navbar-brand text-warning me-auto" href="{% url 'accounts:detail' user.pk %}">
+            {{ request.user.username}}
+            님
+          </a>
+        {% else %}
+          <a class="navbar-brand text-warning me-auto">
+            비회원
+          </a>
+        {% endif %}
+        {% if user.is_authenticated %}
+          <a href="{% url 'articles:create' %}">
+            <button type="button" class="btn btn-outline-warning mx-2">
+              <b>글 작성</b>
+            </button>
+          </a>
+          <a href="{% url 'accounts:logout' %}">
+            <button type="button" class="btn btn-outline-warning">
+              <b>로그아웃</b>
+            </button>
+          </a>
+        {% else %}
+          <a href="{% url 'accounts:signup' %}">
+            <button type="button" class="btn btn-outline-warning mx-2">
+              <b>회원가입</b>
+            </button>
+          </a>
+          <a href="{% url 'accounts:login' %}">
+            <button type="button" class="btn btn-outline-warning">
+              <b>로그인</b>
+            </button>
+          </a>
+        {% endif %}
+      </div>
+    </nav>
+    {% if messages %}
+      {% for message in messages %}
+        <div class="animate__animated animate__slideOutUp animate__delay-2s alert alert-{{ message.tags }}">
+          {{ message }}
+        </div>
+      {% endfor %}
+    {% endif %}
+    <div class="container pb-5">
+      {% block content %}{% endblock content %}
+    </div>
+  </body>
+
+</html>
