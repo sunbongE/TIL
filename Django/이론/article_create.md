@@ -26,3 +26,25 @@ def create(request):
     return render(request,'articles/create.html',context)
 ```
 
+create.html
+
+```py
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <h1>
+    글 작성
+  </h1>
+  <form action="" method='POST'>
+    {% csrf_token %}
+    {% bootstrap_form article_form %}  #view에서 설정한 폼을 쓰는 것
+    <input class='btn btn-success float-end' type="submit" value='작성'>
+  </form>
+{% endblock content %}
+```
+
+
+
+article.user = request.user  코드가 없을 때 에러 
+
+ ![image-20221020204603380](article_create.assets/image-20221020204603380-16662663647691.png)
