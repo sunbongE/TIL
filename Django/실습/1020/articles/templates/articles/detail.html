@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <h1>
+    {{ article.user }}님
+  </h1>
+  <p>{{ article.title }}</p>
+  <p>{{article.content}}</p>
+  <a class='btn btn-outline-danger float-end ' href="{% url 'articles:delete' article.pk %}">삭제</a>
+  <a class='btn btn-outline-success float-end mx-3' href="{% url 'articles:update' article.pk %}">수정</a>
+
+  {% if request.user.is_authenticated %} 
+  {% comment %} 이거안해주면 오류남 에러창 캡쳐로 메뉴얼에 작성 {% endcomment %}
+    <form action="{% url 'articles:comment_create' article.pk %}" method="POST">
+      {% csrf_token %}
+      {% bootstrap_form comment_form layout='inline'%}
+      <div class='d-flex justify-content-end'>
+        <input type="submit" value='글 작성' class='btn btn-success my-1'>
+      </div>
+    </form>
+  {% endif %}
+
+{% endblock content %}

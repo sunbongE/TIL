@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load django_bootstrap5 %}
+{% load static %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+  <body>
+    {% comment %} nav {% endcomment %}
+    <nav class="navbar navbar-expand-lg " style="background-color:rgb(134 73 204 / 55%);" >
+      <div class="container-fluid" >
+        <a class="navbar-brand" href="{% url 'articles:index' %}" >Home</a>
+        {% if request.user.is_authenticated %}
+        <a class="navbar-brand" href="{% url 'accounts:detail' user.pk %}">{{ request.user.username }}</a>
+        {% endif %}
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{% url 'articles:create' %}">작성하기</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:index'%}">회원목록</a>
+            </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:logout' %}">로그아웃</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'accounts:login' %}">로그인</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accounts:signup' %}">회원가입</a>
+          </li>
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </nav>
+    {% comment %} nav {% endcomment %}
+    <div class="container p-5">
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+
+</html>

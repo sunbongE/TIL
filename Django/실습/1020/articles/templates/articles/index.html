@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1 class='text-center mb-5'>
+    게시글
+  </h1>
+  <table class='table table-hover text-center' style="background-color:rgb(134 73 204 / 55%);">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Title</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for article in articles %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>
+            <a class='text-decoration-none text-dark' href="{% url 'articles:detail' article.pk %}">{{article.title}}</a>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock content %}

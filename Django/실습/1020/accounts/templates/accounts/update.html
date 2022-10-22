@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+{% block content %}
+  <form action="" method='POST'>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input class='btn btn-success float-end' value='수정' type="submit">
+  </form>
+  <a type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    회원탈퇴
+  </a>
+  <a href="{% url 'accounts:password' %}" class='btn btn-success float-end mx-3' type="submit">비밀번호 변경</a>
+
+{% endblock content %}

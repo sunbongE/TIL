@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>
+    회원 목록
+  </h1>
+  {% for user in users %}
+    <a href="{% url 'accounts:detail' user.pk %}">
+      <p>{{ user.username }}</p>
+    </a>
+
+  {% endfor %}
+
+{% endblock content %}

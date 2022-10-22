@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>
+    {{user.username}}님 프로필
+  </h1>
+  <p>이름:{{user.full_name}}</p>
+  <p>이메일:{{user.email}}</p>
+  <div class="d-flex justify-content-end">
+    <a class='btn btn-outline-danger mx-3' href="{% url 'accounts:delete' %}">회원 탈퇴</a>
+    <a class='btn btn-outline-success' href="{% url 'accounts:update' user.pk %}">수정</a>
+  </div>
+{% endblock content %}
