@@ -2,11 +2,11 @@
 
 
 
-[개발환경_가이드](Django 개발 환경 가이드.md)
+[개발환경가이드](Django개발환경가이드.md)
 
-[장고_시작!](Django 시작.md)
+[장고시작!](Django시작.md)
 
-[CRUD과정](Django 개발 환경 가이드.md)
+[CRUD과정](CRUD과정.md)
 
 [Login](로그인.md)
 
