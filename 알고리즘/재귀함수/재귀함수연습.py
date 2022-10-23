@@ -1,12 +1,12 @@
-# def func_b(n):
-#     if n >= 4:
-#         return
-#     print(type(n))
-#     print(n,end=' ')
-#     func_b(n+1)
-#     print(n,end=' ')
+def func_b(n):
+    if n >= 4:
+        return
+    print(type(n))
+    print(n,end=' ')
+    func_b(n+1)     
+    print(n,end=' ')
 
-# func_b(0)  # 0 1 2 3 3 2 1 0 
+func_b(0)  # 0 1 2 3 3 2 1 0 
 
 N=4
 def prac(n):
