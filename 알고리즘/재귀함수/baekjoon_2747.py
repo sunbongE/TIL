@@ -14,15 +14,17 @@
 #     if n == 1 or n==2:
 #         return 1
 #     else:
-#         return (n-1)+(n-2)
+#         return f(n-1)+f(n-2)
+# print(f(10))   
+
+
+# memo = {1:1,2:1}
+# def f(n):
+#     if n in memo:
+#         return memo[n]
     
-memo = {1:1,2:1}
-def f(n):
-    if n in memo:
-        return memo[n]
+#     sol = f(n-1)+f(n-2)
+#     memo[n]=sol
+#     return sol
     
-    sol = f(n-1)+f(n-2)
-    memo[n]=sol
-    return sol
-    
-print(f(int(input())))
+# print(f(int(input())))
