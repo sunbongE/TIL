@@ -36,7 +36,7 @@
 
 [모델구성](accounts_models.md)
 
-
+[팔로우_구현](follow구현)
 
 ### ✅article
 
@@ -55,6 +55,8 @@
 [댓글_생성](article_comment_create.md)
 
 [댓글_삭제](articles_comment_delete.md)
+
+[좋아요구현](articles_like_button)
 
 
 
