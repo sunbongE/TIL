@@ -1,11 +1,13 @@
 n,m = map(int,input().split())  
 nums = sorted(list(map(int,input().split())))
 
+
 visited = [False] * n
+
 temp = []
 
 def dfs():
-    if len(temp) == m :
+    if len(temp) == m : # base condition
         print(*temp)
         return
     pre = 0
@@ -15,3 +17,9 @@ def dfs():
             temp.append(nums[i])
             pre = nums[i]
             dfs()
+            visited[i]= False
+            temp.pop()  
+
+            
+            
+dfs()
