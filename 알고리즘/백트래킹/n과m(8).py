@@ -5,13 +5,12 @@ lst = sorted(list(map(int, input().split())))
 ans = []
 
 
-def dfs():
+def dfs(x):
     if len(ans) == m:
         print(*ans) 
         return
-    for i in range(n):
-        
+    for i in range(x,n):
         ans.append(lst[i]) 
-        dfs()
+        dfs(i)
         ans.pop()
-dfs()
+dfs(0)
