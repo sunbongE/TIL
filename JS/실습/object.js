@@ -17,7 +17,7 @@ print(ellie) // 함수 호출한거
 
 //자바스크립트에서는 이런 것도 가능하다.
 ellie.hasJob = true;            // 선언되지 않은것을 만들 수가 있다. 지우는것도 가능
-console.assert(ellie.hasJob)
+console.log(ellie.hasJob)
 
 
 //Computed properties
