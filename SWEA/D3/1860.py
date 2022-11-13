@@ -7,14 +7,17 @@
 
 for case in range(int(input())):
     N,M,K = map(int, input().split())
-    p = list(map(int,input().split()))
+    p = list(map(int,input().split())) #손님이 도착하는 초
    
     p.sort()
+    # if p[0] < M:
+    #     print(f'#{case+1} Impossible')
+    #     break
     ans = 'Possible'
-    cnt = 0
+    cnt = 0 #인원수
     for t in p:
         cnt += 1 
         if (t//M)*K < cnt: # 불만족한 조건을 찾아서 끝내는 것이 더 좋다.
             ans = 'Impossible'
             break
-    print(f'#{case+1} {ans}')
+    print(f'#{case+1} {ans}') 
