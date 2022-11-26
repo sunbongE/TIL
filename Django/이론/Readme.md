@@ -69,3 +69,11 @@
 ### ✅image
 
 [Django_imagekit](django-image.md)
+
+
+
+### ✅비동기 구현
+
+댓글
+
+대댓글

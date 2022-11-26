@@ -134,6 +134,11 @@ const simpleMultiply = (a, b) => {
 (function hello() {
     console.log('IIFE');
 })();
+async function get_myxy() {
+    await delay(3000);
+    return
+}
+
 
 // 연잔사를 받아서 두 수를 연산하는 함수 만들기
 

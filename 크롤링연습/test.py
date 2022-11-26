@@ -46,10 +46,8 @@ for u in url_:
         # print(u.get_attribute("href"))
     cnt += 1
 print(len(lst))
-# num=1
 # for l in lst:
-#     if num == 50:
-#         break
+#     
 #     URL = l
 #     driver.get(url=URL)
 #     driver.implicitly_wait(5)
@@ -97,7 +95,6 @@ print(len(lst))
 #     for size in sizes:
 #         print(f"size: {size.text}")
 #         # test_result['size'].append(size.text)
-#     num += 1
 
     
 # # print(test_result)
