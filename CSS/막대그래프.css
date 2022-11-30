@@ -1,0 +1,30 @@
+.graph {
+    height: 40px;
+    border-radius: 40px;
+}
+
+.graph span {
+    display: block;
+    width: 75%;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    background: violet;
+    border-radius: 40px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: #fff;
+    animation: stack 2s 1;
+}
+
+@keyframes stack {
+    0% {
+        width: 0;
+        color: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        width: 75%;
+        color: rgba(255, 255, 255, 1);
+    }
+}
