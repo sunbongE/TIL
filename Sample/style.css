@@ -1,0 +1,72 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.btn {
+    font-size: 25px;
+    padding: 15px 30px;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    border-radius: 30px;
+    text-transform: uppercase;
+    /* 대문자로 만들어줌 */
+    letter-spacing: 4px;
+    font-family: sans-serif;
+    transition: all 0.4s;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+/* 채워지는 버튼 */
+
+.btn2 {
+    font-size: 25px;
+    padding: 15px 30px;
+    border: 3px solid gold;
+    background-color: transparent;
+    color: gold;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: bold;
+    position: relative;
+    transition: all 0.5s;
+    overflow: hidden;
+}
+
+.btn2:focus {
+    outline: none;
+}
+
+.btn2::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: gold;
+    top: 100%;
+    left: 0%;
+    transition: all 0.4s;
+    z-index: -1;
+    /* 요소가 겹치는 경우 z-index가 높을수록 앞쪽에 위치하고 낮을수록 뒤쪽에 위치하게된다
+    z-index는 기본값이 auto이지만 0으로 입력된 것처럼 작동한다. */
+}
+
+.btn2:hover::before {
+    transform: translateY(-100%);
+}
+
+.btn2:hover {
+    color: #3c3e70;
+}
