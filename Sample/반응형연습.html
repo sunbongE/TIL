@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bg-color {
+            background-color: blueviolet;
+            height: 400px;
+        }
+
+        .col-lg-4 {
+            flex: 0 0 auto;
+            width: 33.3333%;
+        }
+
+        @media screen and (max-width:1000px) {
+            .bg-color {
+                background-color: green;
+            }
+
+            .col-md-6 {
+                flex: 0 0 auto;
+                width: 50%;
+
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            .bg-color {
+                background-color: black;
+
+            }
+
+            .col-sm-12 {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="col-lg-4 col-md-6 col-sm-12 bg-color"></div>
+</body>
+
+</html>
