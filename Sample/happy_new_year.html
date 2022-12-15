@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./happy_new_year.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <section>
+        <h2>Happy New Year <br><span>2022</span></h2>
+    </section>
+
+    <script>
+        function stars() {
+            const count = 200;
+            const section = document.querySelector('section');
+            var i = 0;
+
+            while (i < count) {
+                const star = document.createElement('i');
+                const x = Math.floor(Math.random() * window.innerWidth)
+                const y = Math.floor(Math.random() * window.innerHeight)
+
+                const size = Math.random() * 4;
+                star.style.left = x + 'px';
+                star.style.top = y + 'px';
+                star.style.width = 1 + size + 'px';
+                star.style.height = 1 + size + 'px';
+
+                const duration = Math.random() * 2;
+                star.style.animationDuration = 2 + duration + 's'
+
+                section.appendChild(star);
+                i++
+            }
+        }
+        stars();
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+<h3 class="text-center mb-4">회원 정보 수정</h3>
+<div class="form_frame">
+
+    <form action="/accounts/25/update/" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="csrfmiddlewaretoken"
+            value="HdczlaYg4jaMdJNmMVsnSTTE3DtoKrwr1r0EmVuTIgmJu734Y8jvwjJVOcSUxyoL">
+        <div class="mb-3">
+            <label class="form-label" for="id_image">프로필 사진</label>
+            <input type="file" name="image" accept="" class="form-control" id="id_image">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_nickname">닉네임</label>
+            <input type="text" name="nickname" value="" maxlength="16" class="form-control" placeholder="닉네임"
+                required="" id="id_nickname">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_github_id">Github 아이디</label>
+            <input type="text" name="github_id" maxlength="20" class="form-control" placeholder="Github 아이디"
+                id="id_github_id">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_boj_id">백준 아이디</label>
+            <input type="text" name="boj_id" maxlength="20" class="form-control" placeholder="백준 아이디" id="id_boj_id">
+        </div>
+        <div class="mb-3">
+            <label class="form-label" for="id_language">사용 언어</label>
+            <select name="language" class="form-select" id="id_language">
+                <option value="">---------</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="PHP">PHP</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">기술스텍</label>
+            <div class="" id="id_stack">
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_0" value="Django">
+                    <label class="form-check-label" for="id_stack_0">Django</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_1" value="Spring">
+                    <label class="form-check-label" for="id_stack_1">Spring</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_2" value="Node.js">
+                    <label class="form-check-label" for="id_stack_2">Node.js</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_3" value="React">
+                    <label class="form-check-label" for="id_stack_3">React</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_4" value="MySQL">
+                    <label class="form-check-label" for="id_stack_4">MySQL</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" name="stack" id="id_stack_5" value="SQLite">
+                    <label class="form-check-label" for="id_stack_5">SQLite</label>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="mb-3"><label class="form-label" for="id_mbti">MBTI</label><select name="mbti" class="form-select"
+                id="id_mbti">
+                <option value="">---------</option>
+
+                <option value="ISTJ">ISTJ</option>
+
+                <option value="ISTP">ISTP</option>
+
+                <option value="ISFJ">ISFJ</option>
+
+                <option value="ISFP">ISFP</option>
+
+                <option value="INTJ">INTJ</option>
+
+                <option value="INTP">INTP</option>
+
+                <option value="INFJ">INFJ</option>
+
+                <option value="INFP">INFP</option>
+
+                <option value="ESTJ">ESTJ</option>
+
+                <option value="ESTP">ESTP</option>
+
+                <option value="ESFJ">ESFJ</option>
+
+                <option value="ESFP">ESFP</option>
+
+                <option value="ENTJ">ENTJ</option>
+
+                <option value="ENTP">ENTP</option>
+
+                <option value="ENFJ">ENFJ</option>
+
+                <option value="ENFP">ENFP</option>
+
+            </select>
+        </div>
+        <div class="mb-3"><label class="form-label" for="id_intro">소개글</label><textarea name="intro" cols="40" rows="10"
+                maxlength="100" class="form-control" placeholder="소개글" id="id_intro"></textarea></div>
+        <div class="mt-1 d-flex justify-content-between">
+            <div class="d-flex">
+                <a href="/accounts/25/delete/" class="bbtn-gray me-2" onclick="return confirm('정말 탈퇴하시겠습니까?');">회원
+                    탈퇴</a>
+                <a href="/accounts/password/" class="bbtn-gray">비밀번호 변경</a>
+            </div>
+            <input type="submit" value="완료" class="bbtn">
+        </div>
+    </form>
+</div>
+
+{% endblock content %}
+
+{% block script %}
+{% endblock script %}
