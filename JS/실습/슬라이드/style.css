@@ -1,0 +1,103 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialised;
+}
+
+body {
+    margin-top: 5em;
+    font: 20px/1.5 "Helvetica", Arial, sans-serif;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.slider-container {
+    position: absolute;
+    width: 100%;
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    padding: 0 10%;
+    box-sizing: border-box;
+    top: 50%;
+    transform: translateY(-50%);
+    /* 슬라이드의 높이가 다 다른 경우를 대비해서 전체 높이의 50%까지 두고
+     자신의 높이에 반만 올리는 것.*/
+    text-align: center;
+    overflow: hidden;
+}
+
+.slider-container.animated {
+    -webkit-transition: left .3s ease-in;
+    transition: left .3s ease-in;
+    /* 슬라이드의 바뀌는 과정을 보이게 하려고 있는거 스르륵*/
+}
+
+blockquote {
+    color: #636363;
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 1.5em;
+}
+
+cite {
+    font-size: .75em;
+    font-weight: 700;
+    font-style: normal;
+}
+
+/* Utility */
+.simple-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* Nav */
+#prev,
+#next {
+    /*버튼의 위치를 우선 가운데로 두고 나중에 좌우 몇씩 이동시킬 것임*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    z-index: 999999;
+    display: inline-block;
+    height: 5em;
+    width: 5em;
+    border-radius: 50%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-transition: all .3s ease-in;
+    transition: all .3s ease-in;
+}
+
+#prev.disabled,
+#next.disabled {
+    display: none;
+}
+
+#prev {
+    background-image: url('arrow-left-out.svg');
+    margin-left: -480px;
+}
+
+#prev:hover {
+    background-image: url('arrow-left-over.svg');
+}
+
+#next {
+    margin-left: 380px;
+    background-image: url('arrow-right-out.svg');
+
+}
+
+#next:hover {
+    background-image: url('arrow-right-over.svg');
+}
