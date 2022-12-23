@@ -1,0 +1,38 @@
+html,
+body {
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.panel-question {
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+
+.panel-heading {
+    font-weight: bold;
+    padding: 5px;
+    background-color: #333;
+    color: #fff;
+    cursor: pointer;
+}
+
+.panel-body {
+    padding: 15px;
+}
+
+#btn-collapse {
+    margin-bottom: 10px;
+    background-color: #999;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+    float: right;
+}
