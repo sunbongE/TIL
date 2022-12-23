@@ -1,0 +1,40 @@
+.tab-wrapper {
+    width: 960px;
+    margin: auto;
+}
+
+.tab-menu {
+    padding-left: 0;
+}
+
+.tab-menu li {
+    float: left;
+    list-style: none;
+    background: #ebebeb;
+    margin-right: 10px;
+}
+
+.tab-menu:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.tab-menu li a {
+    color: #999;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 27px;
+    text-decoration: none;
+    padding: 0 20px;
+    display: block;
+}
+
+#tab-content div {
+    display: none;
+}
+
+.tab-menu li a.active {
+    background: #000;
+    color: #fff;
+}
