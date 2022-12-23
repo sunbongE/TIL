@@ -1,7 +1,7 @@
 import sys
 input = sys.stdin.readline
 def dfs(c):
-    ans_dfs.append(c) # 방문 노드 추가
+    # ans_dfs.append(c) # 방문 노드 추가
     print(c,end=' ')
     v[c]=1              # 방문 표시
 
