@@ -22,7 +22,7 @@ document.addEventListener('mousemove', function (e) { // 문서안에서 마우�
     let max = 0;
     let min = 200;
     let randomValue = Math.floor((Math.random() * ((max + 1) - min)) + min);
-    console.log(randomValue)
+    // console.log(randomValue)
     emoji.style.transform = 'translateX(' + randomValue + 'px)';
 
 
