@@ -26,10 +26,11 @@ arr = [list(map(int, input())) for _ in range(N)]
 
 count=[]
 
-for i in range(N) :
+for i in range(N) : # 첫번째 시작하는 좌표를 찾아서 보낸것이다.
+
     for j in range(N):
          if arr[i][j] == 1:
-            count.append(bfs(arr, i, j))
+            count.append(bfs(arr, i, j)) # 리턴값을 count변수에 담을거임
 
 count.sort()    
 print(len(count))
