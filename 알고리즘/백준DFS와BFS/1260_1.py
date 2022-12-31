@@ -6,10 +6,17 @@ from collections import deque
 # 그런다음 for문이 끝나면 큐에 남아있는 방금 방문한 친구를 뽑아서
 # 다시 그 배열을 순회하여 그친구와 직결된 애들을 방문안되어 있는 애들은 방문하면서
 # 큐에 삽입하는 이런 과정을 큐에 값이 없을 때까지 반복하는 것이다.#
-def dfs(a):
-    v[a]=1 #방문처리
-    dfs_ans.append(a)
+# def dfs(a):
+#     v[a]=1 #방문처리
+#     dfs_ans.append(a)
     
+#     for x in arr[a]:
+#         if not v[x]:
+#             v[x]=1
+#             dfs(x)
+def dfs(a):
+    v[a]=1
+    dfs_ans.append(a)
     for x in arr[a]:
         if not v[x]:
             v[x]=1
@@ -17,20 +24,32 @@ def dfs(a):
 
 
 
-
+# def bfs(b):
+#     v[b]=1
+#     q=deque()
+#     q.append(b)
+#     bfs_ans.append(b)
+#     while q:
+#         c = q.popleft()
+#         for j in arr[c]:
+#             if not v[j]:
+#                 q.append(j)
+#                 bfs_ans.append(j)
+#                 v[j]=1
 def bfs(b):
     v[b]=1
     q=deque()
     q.append(b)
     bfs_ans.append(b)
+
     while q:
-        c = q.popleft()
-        for j in arr[c]:
-            if not v[j]:
-                q.append(j)
-                bfs_ans.append(j)
-                v[j]=1
-        
+        cur = q.popleft()
+        for y in arr[cur]:
+            if not v[y]:
+                v[y]=1
+                bfs_ans.append(y)
+                q.append(y)   
+
 
 
 
