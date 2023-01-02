@@ -46,9 +46,9 @@ def bfs(b):
         cur = q.popleft()
         for y in arr[cur]:
             if not v[y]:
-                v[y]=1
-                bfs_ans.append(y)
                 q.append(y)   
+                bfs_ans.append(y)
+                v[y]=1
 
 
 
