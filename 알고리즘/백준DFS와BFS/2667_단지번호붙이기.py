@@ -40,12 +40,6 @@
 
 
 
-N = int(input())
-graph = [list(map(int, input())) for _ in range(N)]
-num = []
-# 상하좌우
-dx = [-1,1,0,0] 
-dy = [0,0,-1,1]
 
 def DFS(x,y):
     if x<0 or x>=N or y<0 or y >=N: # x,y의 위치가 범위 밖이면 False를 리턴한다. 
@@ -63,12 +57,18 @@ def DFS(x,y):
     return False
     
 
+N = int(input())
+graph = [list(map(int, input())) for _ in range(N)]
+num = []
+# 상하좌우
+dx = [-1,1,0,0] 
+dy = [0,0,-1,1]
 count = 0
 result = 0
 
 for i in range(N):
     for j in range(N): 
-        if DFS(i,j) == True:
+        if DFS(i,j) == 1:
             # 처음 시작하는 위치를 찾아서 함수 호출
             num.append(count) # 함수가 끝나고 기록된 단지수를 num에 저장
             result += 1 # 촌수를 기록한다.
