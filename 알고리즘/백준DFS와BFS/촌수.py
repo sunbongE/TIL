@@ -1,4 +1,4 @@
-from collections import deque
+# from collections import deque
 
 # def bfs(start):
 #     global cnt,a,b
@@ -14,7 +14,19 @@ from collections import deque
 #             if not v[t]:
 #                 v[t] =1 
 #                 q.append(t)
-#     else: cnt = -1 ; return cnt # if문 안걸리면 요거
+#     return -1 # if문 안걸리면 요거
+# n = int(input())
+# cnt=0
+# q=deque()
+# a,b = map(int,input().split())
+# arr = [[] for _ in range(n+1)]
+# v = [0] * (n+1)
+# for _ in range(int(input())):
+#     x,y = map(int,input().split())  
+#     arr[x].append(y)
+#     arr[y].append(x)
+# ans = bfs(a)
+# print(ans)
 
 
 def bfs(s,e):
@@ -24,14 +36,14 @@ def bfs(s,e):
     while q:
         c = q.pop(0)
         if c == e:
-            return v[e]-1
+            return v[e]-1 # 촌수를 1부터 시작해서 1빼주는거
 
         for n in arr[c]:
             if not v[n]:
                 q.append(n)
                 v[n] = v[c]+1
+                print(v)
     return -1
-
 
 n = int(input())
 
@@ -43,4 +55,5 @@ for _ in range(int(input())):
     arr[x].append(y)
     arr[y].append(x)
 ans = bfs(a,b)
+print(arr)
 print(ans)
