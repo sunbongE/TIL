@@ -2,6 +2,7 @@ N = int(input())
 li=list(map(int,input().split()))
 
 li.sort()
+# 여긴 내코드
 # ans = li[0]
 # for i in range(1,len(li)):
 #     ans += sum(li[:i+1])
