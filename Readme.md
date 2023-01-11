@@ -14,7 +14,7 @@
 - [Web](./web/이론)
 - [Django](./Django/이론)
 - [알고리즘](알고리즘/Readme.md)
-- [JS](./JS/이론)
+- [JavaScript](./JavaScript/이론/Readme.md)
 
 ### 실습🔥🔥
 
@@ -28,7 +28,7 @@
 
 - [Django](./Django/실습)
 
-- [JS](./JS/실습)
+- [JavaScript](./JavaScript/실습)
 
 - [Sample](./Sample)
 
