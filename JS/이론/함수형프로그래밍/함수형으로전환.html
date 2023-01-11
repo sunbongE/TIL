@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./_.js"></script>
+    <title>함수형 프로그래밍 연습</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; color: blueviolet;">함수형 프로그래밍 연습</h1>
+    <script>
+        var users = [
+            { id: 1, name: 'AD', age: 22 },
+            { id: 2, name: 'SS', age: 21 },
+            { id: 3, name: 'HA', age: 23 },
+            { id: 4, name: 'RA', age: 19 },
+            { id: 5, name: 'TU', age: 26 },
+            { id: 6, name: 'PA', age: 29 },
+            { id: 7, name: 'GO', age: 30 },
+            { id: 8, name: 'PU', age: 35 },
+        ];
+
+        //1. 30세 이상인 유저를 출력.
+        var temp_user = [];
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].age >= 30) {
+                temp_user.push(users[i])
+            }
+        }
+        console.log(temp_user)
+
+        //2. 30세 이상인 users의 names를 수집한다.
+        var temp_user_name = []
+        for (var j = 0; j < temp_user.length; j++) {
+            temp_user_name.push(temp_user[j].name)
+        }
+        console.log(temp_user_name)
+
+        //3. 30세 미만인 users를 출력
+        var temp_user2 = [];
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].age < 30) {
+                temp_user2.push(users[i])
+            }
+        }
+        console.log(temp_user2)
+        //4. 30세 미만인 users의 ages수집
+        var temp_user_name2 = []
+        for (var j = 0; j < temp_user2.length; j++) {
+            temp_user_name2.push(temp_user2[j].name)
+        }
+        console.log(temp_user_name2)
+
+
+        // 1번 코드 함수형으로 변환하기 _filter, _map으로 리팩토링
+        function _filter(list, predi) {
+            var new_list = [];
+            for (var i = 0; i < list.length; i++) {
+                if (predi(list[i])) {
+                    new_list.push(list[i])
+                }
+            }
+            return new_list
+        }
+        // console.log()
+
+        function _map(list, mapper) {
+            var new_li = []
+            for (var j = 0; j < list.length; j++) {
+                new_li.push(mapper(list[j]))
+            }
+            return new_li
+        };
+
+        var over30 = _filter(users, function (user) { return user.age >= 30; });
+        console.log(over30);
+
+        var names = _map(over30, function (user) {
+            return user.name;
+        })
+        console.log(names);
+
+        var under30 = _filter(users, function (user) { return user.age < 30; });
+        console.log(under30);
+
+        var ages = _map(under30, function (user) {
+            return user.age;
+        })
+        console.log(ages);
+
+        // 위 코드 줄이기
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age >= 30; }),
+                function (user) { return user.name; }
+            ));
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age < 30; }),
+                function (user) { return user.age; }
+            )
+        );
+
+
+        function _each(list, iter) {
+            for (var j = 0; j < list.length; j++) {
+                iter(list[j])
+            }
+            return list;
+        }
+        // 커링
+        // _curry, curryr   
+        function _curry(fn) {
+            return function (a, b) {
+                return arguments.length == 2 ? fn(a, b) : function (b) { return fn(a, b); };
+            }
+        }
+
+        function _curryr(fn) {
+            return function (a, b) {
+                return arguments.length == 2 ? fn(a, b) : function (b) { return fn(b, a); };
+            }
+        }
+
+        var add = _curry(function (a, b) {
+            return a + b;
+        });
+        // var add10 = add(10);
+        // console.log(add10(4)) // 14
+        // console.log(add(5)(3))
+
+        // var sub = _curryr(function (a, b) {
+        //     return a - b;
+        // });
+
+        // var sub10 = sub(10);
+        // console.log(sub10(4));
+        // console.log(sub(5)(3));
+
+        //_get 
+        var _get = _curryr(function (obj, key) {
+            return obj == null ? undefined : obj[key];
+        });
+
+        var user1 = users[0];
+        console.log(user1.name);
+        console.log(_get(user1, 'name'))
+
+        //없는 값은 에러 user is not defined
+        // console.log(_get(user[10], 'name'))
+
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age >= 30; }),
+                _get('name')
+            ));
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age < 30; }),
+                _get('age')
+            )
+        );
+
+
+        console.clear()
+
+        // _reduce 만들기
+        var slice = Array.prototype.slice;
+        function _rest(list, num) {
+            return slice.call(list, num || 1);
+        }
+
+
+        function _reduce(list, iter, memo) {
+
+            if (arguments.length == 2) { // memo를 입력 안했을 때
+                memo = list[0];
+                list = _rest(list);
+            }
+            _each(list, function (val) {
+                memo = iter(memo, val);
+            });
+            return memo;
+        }
+
+
+        //동작
+        // momo = add(0,1);
+        // momo = add(memo,2);
+        // momo = add(memo,3);
+        // return memo
+        console.log(
+            _reduce([1, 2, 3, 4], add, 0));
+        console.log(_reduce([1, 2, 3], add));
+    </script>
+</body>
+
+</html>
