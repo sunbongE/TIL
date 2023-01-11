@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script defer src="./_.js"></script>
+    <title>함수형 프로그래밍 연습</title>
+</head>
+
+<body>
+    <h1 style="text-align: center; color: blueviolet;">함수형 프로그래밍 연습</h1>
+    <script>
+        var users = [
+            { id: 1, name: 'AD', age: 22 },
+            { id: 2, name: 'SS', age: 21 },
+            { id: 3, name: 'HA', age: 23 },
+            { id: 4, name: 'RA', age: 19 },
+            { id: 5, name: 'TU', age: 26 },
+            { id: 6, name: 'PA', age: 29 },
+            { id: 7, name: 'GO', age: 30 },
+            { id: 8, name: 'PU', age: 35 },
+        ];
+
+        //1. 30세 이상인 유저를 출력.
+        var temp_user = [];
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].age >= 30) {
+                temp_user.push(users[i])
+            }
+        }
+        console.log(temp_user)
+
+        //2. 30세 이상인 users의 names를 수집한다.
+        var temp_user_name = []
+        for (var j = 0; j < temp_user.length; j++) {
+            temp_user_name.push(temp_user[j].name)
+        }
+        console.log(temp_user_name)
+
+        //3. 30세 미만인 users를 출력
+        var temp_user2 = [];
+        for (var i = 0; i < users.length; i++) {
+            if (users[i].age < 30) {
+                temp_user2.push(users[i])
+            }
+        }
+        console.log(temp_user2)
+        //4. 30세 미만인 users의 ages수집
+        var temp_user_name2 = []
+        for (var j = 0; j < temp_user2.length; j++) {
+            temp_user_name2.push(temp_user2[j].name)
+        }
+        console.log(temp_user_name2)
+
+
+        // 1번 코드 함수형으로 변환하기 _filter, _map으로 리팩토링
+        function _filter(list, predi) {
+            var new_list = [];
+            for (var i = 0; i < list.length; i++) {
+                if (predi(list[i])) {
+                    new_list.push(list[i])
+                }
+            }
+            return new_list
+        }
+        // console.log()
+
+        function _map(list, mapper) {
+            var new_li = []
+            for (var j = 0; j < list.length; j++) {
+                new_li.push(mapper(list[j]))
+            }
+            return new_li
+        };
+
+        var over30 = _filter(users, function (user) { return user.age >= 30; });
+        console.log(over30);
+
+        var names = _map(over30, function (user) {
+            return user.name;
+        })
+        console.log(names);
+
+        var under30 = _filter(users, function (user) { return user.age < 30; });
+        console.log(under30);
+
+        var ages = _map(under30, function (user) {
+            return user.age;
+        })
+        console.log(ages);
+
+        // 위 코드 줄이기
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age >= 30; }),
+                function (user) { return user.name; }
+            ));
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age < 30; }),
+                function (user) { return user.age; }
+            )
+        );
+
+        // _map,_filter 함수의 중복 제거
+
+    </script>
+</body>
+
+</html>
