@@ -104,8 +104,97 @@
             )
         );
 
-        // _map,_filter 함수의 중복 제거
 
+        function _each(list, iter) {
+            for (var j = 0; j < list.length; j++) {
+                iter(list[j])
+            }
+            return list;
+        }
+        // 커링
+        // _curry, curryr   
+        function _curry(fn) {
+            return function (a, b) {
+                return arguments.length == 2 ? fn(a, b) : function (b) { return fn(a, b); };
+            }
+        }
+
+        function _curryr(fn) {
+            return function (a, b) {
+                return arguments.length == 2 ? fn(a, b) : function (b) { return fn(b, a); };
+            }
+        }
+
+        var add = _curry(function (a, b) {
+            return a + b;
+        });
+        // var add10 = add(10);
+        // console.log(add10(4)) // 14
+        // console.log(add(5)(3))
+
+        // var sub = _curryr(function (a, b) {
+        //     return a - b;
+        // });
+
+        // var sub10 = sub(10);
+        // console.log(sub10(4));
+        // console.log(sub(5)(3));
+
+        //_get 
+        var _get = _curryr(function (obj, key) {
+            return obj == null ? undefined : obj[key];
+        });
+
+        var user1 = users[0];
+        console.log(user1.name);
+        console.log(_get(user1, 'name'))
+
+        //없는 값은 에러 user is not defined
+        // console.log(_get(user[10], 'name'))
+
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age >= 30; }),
+                _get('name')
+            ));
+        console.log(
+            _map(
+                _filter(users, function (user) { return user.age < 30; }),
+                _get('age')
+            )
+        );
+
+
+        console.clear()
+
+        // _reduce 만들기
+        var slice = Array.prototype.slice;
+        function _rest(list, num) {
+            return slice.call(list, num || 1);
+        }
+
+
+        function _reduce(list, iter, memo) {
+
+            if (arguments.length == 2) { // memo를 입력 안했을 때
+                memo = list[0];
+                list = _rest(list);
+            }
+            _each(list, function (val) {
+                memo = iter(memo, val);
+            });
+            return memo;
+        }
+
+
+        //동작
+        // momo = add(0,1);
+        // momo = add(memo,2);
+        // momo = add(memo,3);
+        // return memo
+        console.log(
+            _reduce([1, 2, 3, 4], add, 0));
+        console.log(_reduce([1, 2, 3], add));
     </script>
 </body>
 
