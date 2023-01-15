@@ -13,8 +13,8 @@ for _ in range(n):
         ans += num
 
 
-minus_num.sort()
-plus_num.sort(reverse=True)
+minus_num.sort() # -55 -2 -1 0 
+plus_num.sort(reverse=True) # 4 3 2
 
 # 양수
 p_len = len(plus_num)

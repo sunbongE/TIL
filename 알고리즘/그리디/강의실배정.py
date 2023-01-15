@@ -14,6 +14,7 @@ for i in range(1,N):
     if times[i][0] >= rooms[0]:
         heapq.heappop(rooms)
         heapq.heappush(rooms,times[i][1])
+        
     else:
         heapq.heappush(rooms,times[i][1])
 print(len(rooms))

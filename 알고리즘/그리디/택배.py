@@ -18,7 +18,6 @@ for s,e,b in arr:
     for i in range(s,e) :
         min_ = min(min_,box[i])
 
-
     min_ = min(min_, b)
     for i in range(s,e):
         box[i] -= min_

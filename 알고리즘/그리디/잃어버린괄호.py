@@ -1,4 +1,3 @@
-
 li = input().split('-')
 num = []
 for i in li:
