@@ -23,4 +23,5 @@ for bag in bags:
         answer -= heapq.heappop(tmp_jew)
     elif not jew:
         break
+    
 print(answer)
