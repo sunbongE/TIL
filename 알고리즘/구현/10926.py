@@ -1,0 +1,4 @@
+#??!
+id = input()
+
+print(id + '??!')
