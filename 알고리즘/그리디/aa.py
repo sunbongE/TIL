@@ -17,6 +17,7 @@ for i in range(K):
     if li[i] in multitap: # 멀티탭에서 이미 사용중인 제품이면 건너뛰기
         continue
     
+    
     # 여기부터는 멀티탭에 없는 제품
     # 멀티탭에 있는 상품중에 빈도수가 낮은 것을 바꿔준다.
     # 그리고 cnt 1
