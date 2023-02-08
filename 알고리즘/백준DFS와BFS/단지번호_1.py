@@ -20,3 +20,7 @@ for i in range(n):
             ans.append(cnt)
 ans.sort()
 print(len(ans),*ans, sep='\n')
+
+
+l=[30000,22400,20000,46000,28000,36000,12000,14700,17000,35000]
+print(sum(l))
