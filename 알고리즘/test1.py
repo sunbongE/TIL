@@ -64,3 +64,4 @@
 # print(*zip(*a))
 li=[i for i in range(1,20)]
 print(sum(li))
+
