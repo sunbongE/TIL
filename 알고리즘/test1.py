@@ -25,7 +25,7 @@
 #     temp=[]
 
 #     new_board = [[0]*len(board[0]) for _ in range(len(board))]
-    
+
 #     for i in range(len(board[0])):
 #         for j in range(len(board)):
 #             new_board[j][i] = board[i][j]
@@ -47,7 +47,7 @@
 #     return answer
 
 # def solution(board, moves):
-    # cols = list(map(lambda x: list(filter(lambda y: y > 0, x)), zip(*board)))
+# cols = list(map(lambda x: list(filter(lambda y: y > 0, x)), zip(*board)))
 #     a, s = 0, [0]
 #     print(cols)
 #     for m in moves:
@@ -62,6 +62,5 @@
 
 # a=[[0,0,0,0,0],[0,0,1,0,3],[0,2,5,0,1],[4,2,4,4,2],[3,5,1,3,1]]
 # print(*zip(*a))
-li=[i for i in range(1,20)]
-print(sum(li))
-
+for num in range(int(input()), 0, -1):
+    print(num)
