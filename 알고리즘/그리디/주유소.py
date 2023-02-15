@@ -1,6 +1,6 @@
-n=int(input())
-distance = list(map(int,input().split()))
-city = list(map(int,input().split()))
+n = int(input())
+distance = list(map(int, input().split()))
+city = list(map(int, input().split()))
 # total_distance = sum(distance)
 # pay = 0
 # min_ = city[0]*total_distance
@@ -14,13 +14,13 @@ city = list(map(int,input().split()))
 #         temp += (distance[j]*city[j])
 #     if temp < min_:
 #         min_ = temp
-    
+
 # print(min_)
 
 res = 0
 m = city[0]
-for i in range(n-1):
+for i in range(n - 1):
     if city[i] < m:
         m = city[i]
-    res += m*distance[i]
+    res += m * distance[i]
 print(res)
