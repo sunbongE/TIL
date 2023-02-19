@@ -23,6 +23,7 @@ while cnt != K:
 # print(t)
 
 
+
 def prime_list(n):
     # 에라토스테네스의 체 초기화: n개 요소에 True 설정(소수로 간주)
     sieve = [True] * n
