@@ -1,46 +1,48 @@
-def dfs(start)  :
-    ans.append(start)
-    v[start] = 1
-    for i in arr[start]:
-        if not v[i]:
-            dfs(i)
+# def dfs(start)  :
+#     ans.append(start)
+#     v[start] = 1
+#     for i in arr[start]:
+#         if not v[i]:
+#             dfs(i)
 
-def bfs(start):
-    v[start]=1
-    p=[]
-    p.append(start)
- 
-    while p:
-        cur = p.pop(0)
-        ans.append(cur)
+# def bfs(start):
+#     v[start]=1
+#     p=[]
+#     p.append(start)
 
-        for i in arr[cur]:
-            if not v[i]:
-                v[i] = 1
-                p.append(i)
+#     while p:
+#         cur = p.pop(0)
+#         ans.append(cur)
 
-N,M,V = map(int,input().split())
+#         for i in arr[cur]:
+#             if not v[i]:
+#                 v[i] = 1
+#                 p.append(i)
 
-arr = [[] for _ in range(N+1)]
-# print(arr)
+# N,M,V = map(int,input().split())
 
-for _ in range(M):
-    a,b = map(int,input().split())
-    arr[a].append(b)
-    arr[b].append(a)
+# arr = [[] for _ in range(N+1)]
+# # print(arr)
 
-for ar in arr:
-    ar.sort()
-# print(arr) 
-# # [[], [2, 3, 4], [1, 4], [1, 4], [1, 2, 3]]
+# for _ in range(M):
+#     a,b = map(int,input().split())
+#     arr[a].append(b)
+#     arr[b].append(a)
 
-v = [0]*(N+1)
-v[0] = 1
-ans=[]
-dfs(V)
-print(*ans)
-v = [0]*(N+1)
-v[0] = 1
-ans=[]
-bfs(V)
-print(*ans)
+# for ar in arr:
+#     ar.sort()
+# # print(arr)
+# # # [[], [2, 3, 4], [1, 4], [1, 4], [1, 2, 3]]
+
+# v = [0]*(N+1)
+# v[0] = 1
+# ans=[]
+# dfs(V)
+# print(*ans)
+# v = [0]*(N+1)
+# v[0] = 1
+# ans=[]
+# bfs(V)
+# print(*ans)
+
+print(f"개행문자이거 \%n되나요")
