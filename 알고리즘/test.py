@@ -44,5 +44,9 @@
 # ans=[]
 # bfs(V)
 # print(*ans)
-
-print(f"개행문자이거 \%n되나요")
+ans = 0
+for i in range(1, 1001):
+    if i % 3 == 0 or i % 8 == 0:
+        ans += i
+print(ans)
+print(9 / 3)
