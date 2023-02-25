@@ -2,11 +2,12 @@ from collections import deque
 
 
 def bfs(s, e):
-    global cnt
+
     q = deque()
     q.append(s)
     v = [0] * 100001
     v[s] = 1
+
     while q:
         cur = q.popleft()
         if cur == e:
@@ -17,10 +18,8 @@ def bfs(s, e):
                 q.append(x)
                 v[x] = v[cur] + 1
 
-    return -1
+
+N, K = map(int, input().split())
 
 
-cnt = 0
-subin, sister = map(int, input().split())
-ans = bfs(subin, sister)
-print(ans)
+print(bfs(N, K))
