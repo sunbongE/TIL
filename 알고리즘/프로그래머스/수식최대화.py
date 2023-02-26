@@ -18,3 +18,7 @@ def solution(expression):
         answer.append(abs(int(exp[0])))
 
     return max(answer)
+
+
+# a = ["100", "-", "10"]
+# print(eval(a[0] + a[1] + a[2]))

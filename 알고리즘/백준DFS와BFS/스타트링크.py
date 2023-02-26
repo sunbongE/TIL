@@ -1,5 +1,7 @@
 from collections import deque
 
+# 큐, 방문, while, base condition
+
 
 def bfs(f, s, g, u, d):
     q = deque()
@@ -11,6 +13,7 @@ def bfs(f, s, g, u, d):
         cur = q.popleft()
         if cur == g:
             return v[g] - 1
+
         for val in (cur + u, cur - d):
             if 1 <= val <= f and not v[val]:
                 q.append(val)
