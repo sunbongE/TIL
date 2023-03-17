@@ -186,12 +186,35 @@ def delete(request,pk):
 
 ### 적용 방법
 
+- django templates
+
 ```django
+
 {% extends 'base.html'%} <!-- 처음 시작 -->
 
 {% block content %}
 <h1>게시판</h1>
 <!-- 이곳에 내용을 채움 -->
 {% endblock %}
+```
+
+- settings.py - [BASE_DIR / "templates"] 적용
+
+```django
+TEMPLATES = [
+    {
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+        "DIRS": [BASE_DIR / "templates"],
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.debug",
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+            ],
+        },
+    },
+]
 ```
 
