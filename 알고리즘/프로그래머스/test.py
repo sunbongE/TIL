@@ -7,9 +7,10 @@ def solution(sizes):
 
         if big > max_:
             max_ = big
-        elif small > min_:
+        if small > min_:
             min_ = small
-        print(big, small)
+
+        # print(big, small)
     return min_ * max_
 
 
