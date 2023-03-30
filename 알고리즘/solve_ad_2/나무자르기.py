@@ -2,7 +2,7 @@ import sys
 
 input = sys.stdin.readline
 N, M = map(int, input().split())
-tree_H = list(map(int, input().split()))
+trees = list(map(int, input().split()))
 
 # 일단 ,, 내생각 이분탐색
 # 나무중 가장 길이가 작은 값부터 가장 큰 값까지
@@ -16,21 +16,22 @@ tree_H = list(map(int, input().split()))
 
 # 최저 최고 높이 설정
 start = 1
-end = max(tree_H)
+end = max(trees)
 
 
-while start <= end:
+while start <= end:  # 적절한 벌목 높이를 찾는 알고리즘
     mid = (start + end) // 2
-    total_H = 0
 
-    for tree in tree_H:  # 각 트리에 빼기연산
-        if tree >= mid:
-            total_H += tree - mid
+    total_H = 0  # 벌목된 나무 총합
 
+    for tree in trees:
+        total_H += max(0, tree - mid)
+
+    # 반절씩 증가, 감소
     if total_H >= M:
         start = mid + 1
-    else:  # 현재 높이가 더 작으면 최대수를 차감
-        start = mid - 1
+    else:
+        end = mid - 1
 
 
 print(end)
