@@ -19,7 +19,7 @@ for ground_target in range(min(dct_ground.keys()), max(dct_ground.keys()) + 1):
     result_t = 0  # 걸리는 시간
 
     for ground_height, ground_cnt in dct_ground.items():  # 매트리스의 높이와 개수
-        if ground_height > ground_target:  # 매트릭스가 현재 순회 높이보다 높다면
+        if ground_height > ground_target:  # 매트릭스가 현재 순회 높이보다 높다면 깍인다.
             result_t += (
                 2 * (ground_height - ground_target) * ground_cnt
             )  # 시간: 2초*제거한 높이 * 같은 높이의 개수
@@ -27,7 +27,7 @@ for ground_target in range(min(dct_ground.keys()), max(dct_ground.keys()) + 1):
                 ground_height - ground_target
             ) * ground_cnt  # 인벤토리: 제거한 높이 * 같은 높이 개수
 
-        else:  # 매트릭스가 순회 높이보다 낮다면,
+        else:  # 매트릭스가 순회 높이보다 낮다면, 채운다.
             result_t += (ground_target - ground_height) * ground_cnt  # 채우는데 걸리는 시간
             result_b -= (ground_target - ground_height) * ground_cnt  # 내 인벤토리에서 n개 사용
 
@@ -35,5 +35,5 @@ for ground_target in range(min(dct_ground.keys()), max(dct_ground.keys()) + 1):
         ls_result.append((ground_target, result_t))
 # print(ls_result)
 result = min(ls_result, key=lambda x: (x[1], -x[0]))
-print(result)
+# print(result)
 print(result[1], result[0])

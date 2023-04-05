@@ -1,33 +1,33 @@
 # DFS 전체가 방문될 때 까지 반복하고 매 반복 후 cnt +=1 하면 원하는 값을 알수 있다.
 # v = [[2, 4], [2], [0, 1, 2, 2, 3, 4], [2], [2, 0]]
+# from pprint import pprint
+import sys
 
-dirR = [1, -1, 0, 0]
-dirC = [0, 0, 1, -1]
-MAX = 50 + 10
-
-
-def dfs(y, x):
-    visited[y][x] = 1
-    for diridx in range(4):
-        newY = y + dirR[diridx]
-        newX = x + dirC[diridx]
-        if graph[newY][newX] and not visited[newY][newX]:
-            dfs(newY, newX)
+sys.setrecursionlimit(10**6)  # 재귀함수 깊이설정! 이거안하면 안풀림
+input = sys.stdin.readline
 
 
-tc = int(input())
-for _ in range(tc):
+def dfs(x, y):
+    visited[x][y] = 1  # 방문표시
+    for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:  # 4방향탐색
+        nx = x + dx
+        ny = y + dy
+        if arr[nx][ny] == 1 and not visited[nx][ny]:
+            dfs(nx, ny)
+
+
+T = int(input())
+for _ in range(T):  # 테스트 케이스만큼 반복
+    m, n, k = map(int, input().split())  # 가로, 세로, 좌표개수
+    arr = [[0] * (m + 1) for _ in range(n + 1)]
+    visited = [[0] * (m + 1) for _ in range(n + 1)]
+    for _ in range(k):  # 좌표 입력받아 1표시
+        x, y = map(int, input().split())
+        arr[y][x] = 1
     cnt = 0
-    m, n, k = map(int, input().split())
-    graph = [[0] * MAX for _ in range(MAX)]
-    visited = [[0] * MAX for _ in range(MAX)]
-    for _ in range(k):
-        x, y = map(int, input().split())  # 좌표입력
-        graph[y + 1][x + 1] = 1
-
-    for i in range(1, n + 1):
-        for j in range(1, m + 1):
-            if graph[i][j] and not visited[i][j]:
+    for i in range(n):
+        for j in range(m):
+            if arr[i][j] and not visited[i][j]:  # 배열에 값이 1이고, 미방문
                 dfs(i, j)
                 cnt += 1
     print(cnt)
