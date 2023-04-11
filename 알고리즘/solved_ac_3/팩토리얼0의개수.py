@@ -23,16 +23,19 @@ def count_trailing_zeros(n):
         while i % 2 == 0:
             count_2 += 1
             i //= 2
+        print("첫번째 i =>", i)
         while i % 5 == 0:
             count_5 += 1
             i //= 5
+        print("2번째 i =>", i)
 
     # 2와 5의 개수 중 작은 값을 반환
     return min(count_2, count_5)
 
 
-for i in range(10):
-    print(count_trailing_zeros(10 + i))
+print(count_trailing_zeros(10))
+# for i in range(10, 21):
+#     print(count_trailing_zeros(i))
 # 3628800               2
 # 39916800              2
 # 479001600             2
