@@ -45,4 +45,49 @@ for case in range(1, 11):
     print(f"#{case} {ans}")
 
 
-# print(li)
+# ---------간단하지만 비효율적-------------------
+def is_pal(arr, leng):
+    for lst in arr:
+        for i in range(N - leng + 1):
+            if lst[i : i + leng] == lst[i : i + leng][::-1]:
+                return True
+    return False
+
+
+for case in range(1, 11):
+    cs = int(input())
+    N = 100
+    arr1 = [input() for _ in range(100)]
+    arr2 = ["".join(x) for x in zip(*arr1)]  # 세로
+
+    for leng in range(N, 1, -1):
+        if is_pal(arr1, leng) or is_pal(arr2, leng):
+            break
+
+    print(f"#{case} {leng}")
+
+# -----------------효율적----------------------
+
+
+def is_pal_idx(arr, leng):
+    for lst in arr:
+        for i in range(N - leng + 1):
+            for j in range(leng // 2):
+                if lst[i + j] != lst[i + leng - 1 - j]:
+                    break
+            else:
+                return True
+    return False
+
+
+for case in range(1, 11):
+    cs = int(input())
+    N = 100
+    arr1 = [input() for _ in range(100)]
+    arr2 = ["".join(x) for x in zip(*arr1)]  # 세로
+
+    for leng in range(N, 1, -1):
+        if is_pal_idx(arr1, leng) or is_pal_idx(arr2, leng):
+            break
+
+    print(f"#{case} {leng}")
