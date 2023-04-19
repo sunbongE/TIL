@@ -1,67 +1,35 @@
-# # 우선 입력 받은 상태에서 2중 for 문으로 순회한다.
-
-# # i, L-1
-# # i+1,L
-
-# # 내림 차순 정렬을 해본다.
-# # arr[i] == k : cnt +=1
-# # 이거 아니면 temp = arr[i] temp변경하고
+d = [0]  # 속도 줄이려는 목적 - 예전 테케에서 계산한 적 있는 대각선이면 값만 찾아올것
 
 
-# # temp += arr[i+1] 해나간다.
-# # 여기에 if문 또 적용
-# # if temp == k : cnt+=1   #
-# # elif temp > k: break # 더해 나간 것이 타겟 값ㅂ다 크면 더이상 안본다.
+def find(n):
+    global d
+    print(d)
+    if n <= d[-1]:  # 예전에 찾았던 적 있는 대각선이면
+        k = len(d)  # k를 마지막 대각선에서 출발해서 감소시킴
+        for i in range(len(d) - 1, -1, -1):
+            if d[i - 1] < n <= d[i]:
+                k = i  # k의 의미 : i번째 대각선에 그 점이 포함되어있다
+                break
+        return [
+            1 + n - (1 + (k - 1) * k // 2),
+            k - (n - (1 + (k - 1) * k // 2)),
+        ]  # 시작,끝점 규칙에 따라 계산
+    else:
+        k = len(d)  # 예전에 찾지않았던 큰 숫자면 새로 계산해야함
+        while True:
+            if (1 + (k - 1) * k // 2) <= n <= k * (k + 1) // 2:
+                break
+            d.append(k * (k + 1) // 2)  # 이 대각선의 끝점을 d에 기록해놓기
+            k += 1
+        return [1 + n - (1 + (k - 1) * k // 2), k - (n - (1 + (k - 1) * k // 2))]
 
 
-# GPT- DP 풀이
-def count_subset_sum(numbers, target):
-    n = len(numbers)
-    dp = [[0] * (target + 1) for _ in range(n + 1)]
-
-    # dp[i][j]는 numbers[0]~numbers[i-1] 중에서 j를 만들 수 있는 부분집합의 개수
-    for i in range(n + 1):
-        dp[i][0] = 1
-    # print(dp)
-
-    for i in range(1, n + 1):
-        for j in range(1, target + 1):
-            if numbers[i - 1] > j:
-                dp[i][j] = dp[i - 1][j]
-            else:
-                dp[i][j] = dp[i - 1][j] + dp[i - 1][j - numbers[i - 1]]
-    print(dp)
-    return dp[n][target]
-
-
-t = int(input())
-
-for i in range(1, t + 1):
-    n, k = map(int, input().split())
-    numbers = list(map(int, input().split()))
-    count = count_subset_sum(numbers, k)
-    print(f"#{i} {count}")
-
-
-# 빽트래킹 풀이.
-def dfs(n, sm):
-    global cnt
-    if K < sm:
-        return
-    if n == N:
-        if sm == K:
-            cnt += 1
-        return
-
-    dfs(n + 1, sm + nums[n])  # 현재 위치 수를 사용한 경우
-    dfs(n + 1, sm)  # 사용하지 않은 경우
-
-
-for case in range(1, 1 + int(input())):
-    N, K = map(int, input().split())
-    cnt = 0
-
-    nums = list(map(int, input().split()))
-
-    dfs(0, 0)
-    print(f"#{case} {cnt}")
+res = []
+for tc in range(int(input())):
+    P, Q = map(int, input().split())
+    p_xy = find(P)
+    q_xy = find(Q)
+    xy = [p_xy[0] + q_xy[0], p_xy[1] + q_xy[1]]
+    r = 1 + (xy[0] + xy[1] - 1) * (xy[0] + xy[1] - 2) // 2 + xy[0] - 1
+    res.append("#{} {}".format(tc + 1, r))
+print("\n".join(res))
