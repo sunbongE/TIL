@@ -1,14 +1,25 @@
-n = int(input())
+T = int(input())
 
-nums = list(map(int, input().split()))
+for i in range(T):
+    N = input().strip()
+    n_list = list(N)
 
-dp = [1] * n
+    # 최솟값 구하기
+    min_list = sorted(n_list)
+    if min_list[0] == "0":
+        for j in range(1, len(min_list)):
+            if min_list[j] != "0":
+                min_list[0], min_list[j] = min_list[j], min_list[0]
+                break
+    min_num = int("".join(min_list))
 
-for i in range(n - 1, -1, -1):
-    for j in range(n - i):
-        # print(i, n - 1 - j)
-        if i != n - 1 - j:
-            if nums[i] > nums[n - 1 - j]:
-                dp[i] = max(dp[i], dp[n - 1 - j] + 1)
-# print(dp)
-print(max(dp))
+    # 최댓값 구하기
+    max_list = sorted(n_list, reverse=True)
+    if max_list[0] == "0":
+        for j in range(1, len(max_list)):
+            if max_list[j] != "0":
+                max_list[0], max_list[j] = max_list[j], max_list[0]
+                break
+    max_num = int("".join(max_list))
+
+    print("#{} {} {}".format(i + 1, min_num, max_num))
