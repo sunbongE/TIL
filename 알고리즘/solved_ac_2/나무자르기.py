@@ -1,8 +1,3 @@
-import sys
-
-input = sys.stdin.readline
-N, M = map(int, input().split())
-trees = list(map(int, input().split()))
 # 일단 ,, 내생각 이분탐색
 # 나무중 가장 길이가 작은 값부터 가장 큰 값까지
 # 각 수를 빼본다. max(0,(num1-num2)) 0보다 작으면 안댐
@@ -13,6 +8,11 @@ trees = list(map(int, input().split()))
 # 그럼 어떤 수로 각 나무를 빼줘야 할까
 # 이분 탐색문제 같으니까 (최대높이+최소높이)//2 한 값으로 해야할 느낌이다.
 # 최저 최고 높이 설정
+import sys
+
+input = sys.stdin.readline
+N, M = map(int, input().split())
+trees = list(map(int, input().split()))
 start = 1
 end = max(trees)
 
