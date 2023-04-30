@@ -1,47 +1,45 @@
-# 4가지의 모든 방법을 다 해보는 백트레킹 방법으로 접근한다.
-# def dfs(n, pay):
+# def dfs(n, sm):
 #     global ans
-#     if pay >= ans:
+#     # 가지치기.
+#     if sm >= ans:
 #         return
+#     # 12달을 모두 돌았을 때 가격
 #     if n > 12:
-#         ans = min(ans, pay)
+#         ans = min(ans, sm)
 #         return
 
-#     dfs(n + 1, pay + (day * plan[n]))
-#     dfs(n + 1, pay + mon)
-#     dfs(n + 3, pay + mon3)
-#     dfs(n + 12, pay + year)
+#     dfs(n + 1, sm + (plan[n] * day))
+#     dfs(n + 1, sm + mon)
+#     dfs(n + 3, sm + mon3)
+#     dfs(n + 12, sm + year)
 
 
-# for case in range(1, 1 + int(input())):
+# for case in range(1, int(input()) + 1):
 #     day, mon, mon3, year = map(int, input().split())
-
+#     # 0~12까지 생성
 #     plan = [0] + list(map(int, input().split()))
-#     # print(plan)
-#     ans = 365 * 3000
+#     ans = 1e9
+#     # 종료조건 횟수, 비용 합계를 넘겨준다.
+#     dfs(0, 0)
+#     print(f"#{case} {ans}")
 
-#     dfs(1, 0)
-#     print(f'#{case} {ans}')
-
-# 그리디한 방법 dp
-# 각 월을 돌면서 계산할 수 있는 비용들을 전부 계산하고 최소값을 갱신하는 것이
-# 답인데
-#
-
-for case in range(1, 1 + int(input())):
+# dp 풀이
+for case in range(1, int(input()) + 1):
     day, mon, mon3, year = map(int, input().split())
-
+    # 0~12까지 생성
     plan = [0] + list(map(int, input().split()))
-    # print(plan)
-    ans = 365 * 3000
-    d = [0] * 13
-    for i in range(1, 13):
-        mn = d[i - 1] + plan[i] * day  # 일일권 구매
-        mn = min(mn, d[i - 1] + mon)  # 월간 이용권 구매
-        if i >= 3:  # 3개월 이용권 구매
-            mn = min(mn, d[i - 3] + mon3)
-        if i >= 12:  # 1년 이용권 구매
-            mn = min(mn, d[i - 12] + year)
-        d[i] = mn  # 위 과정을 통해 걸러진 최소값을 기록한다.
+    # ans = 1e9
+    dp = [0] * 13
 
-    print(f"#{case} {d[12]}")
+    # 1~12까지 for문을 통해 순회하면 각 월에대한 최소 값을 구한다.
+    for i in range(1, 13):
+        mn = dp[i - 1] + plan[i] * day  # 1일권
+        mn = min(mn, dp[i - 1] + mon)  # 1달권
+        if i >= 3:
+            mn = min(mn, dp[i - 3] + mon3)
+        if i >= 12:
+            mn = min(mn, dp[i - 12] + year)
+        dp[i] = mn
+    ans = dp[12]
+    print(dp)
+    print(f"#{case} {ans}")
