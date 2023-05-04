@@ -27,13 +27,15 @@
 
 n = int(input())
 
-dt = [0] * (n + 1)
-
+dp = [0] * (n + 1)
 for idx in range(n):
     arr = list(map(int, input().split()))
-    temp = list(dt)
+    temp = list(dp)
 
     for j in range(1, len(arr) + 1):
-        dt[j] = max(temp[j - 1] + arr[j - 1], temp[j] + arr[j - 1])
+        dp[j] = max(temp[j - 1] + arr[j - 1], temp[j] + arr[j - 1])
+    print(dp)
+    print(temp)
+    print(arr)
 
-print(max(dt))
+print(max(dp))
