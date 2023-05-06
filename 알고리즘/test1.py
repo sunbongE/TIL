@@ -1,22 +1,36 @@
-def dfs(sx, sy, val):
-    global result
-    if len(val) == 7:
-        result.append(val)
-        return
+# # # import sys
 
-    for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
-        nx, ny = sx + dx, sy + dy
-        if 0 <= nx < 4 and 0 <= ny < 4:
-            dfs(nx, ny, val + str(arr[nx][ny]))
+# # # input = sys.stdin.readline
+# N, K = map(int, input().split())
+
+# li = [list(map(int, input().split())) for _ in range(N)]
+# dp = li[0]
+
+# for i in range(1, N):
+#     for j in range(K):
+#         dp[j] += max(li[i][:j] + li[i][j + 1 :])
+# print(max(dp))
+# # -------------------------------------
+import sys
+
+input = sys.stdin.readline
+
+N, K = map(int, input().split())
+satis = [list(map(int, input().split())) for _ in range(N)]
 
 
-for case in range(1, 1 + int(input())):
-    arr = [list(map(int, input().split())) for _ in range(4)]
-    ans = 0
-    result = []
-    for i in range(4):
-        for j in range(4):
-            st = str(arr[i][j])
-            dfs(i, j, st)
-    ans = len(set(result))
-    print(f"#{case} {ans}")
+dp = [[0] * K for _ in range(N)]
+dp[0] = satis[0]
+temp = sorted(dp[0])
+info = []
+
+for i in range(1, N):
+    tmp = (temp[-1], temp[-2])
+    for j in range(K):
+        if dp[i - 1][j] == tmp[0]:
+            dp[i][j] = satis[i][j] + tmp[1]
+        else:
+            dp[i][j] = satis[i][j] + tmp[0]
+    temp = sorted(dp[i])
+
+print(max(dp[-1]))
