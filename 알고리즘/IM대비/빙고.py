@@ -1,5 +1,3 @@
-from pprint import pprint
-
 # 1~5 까지 빙고판
 # 빙고 3개 이상이면 빙고를 외침.
 dogam = dict()  # 기록할 사전.
@@ -29,7 +27,7 @@ for ii in range(5):
         dogam[str((ti, "_"))] = dogam.get(str((ti, "_")), 0) + 1
         dogam[str(("_", tj))] = dogam.get(str(("_", tj)), 0) + 1
 
-        if list(dogam.values()).count(5) == 3:
+        if list(dogam.values()).count(5) >= 3:
             print(cnt)
             exit()
 
