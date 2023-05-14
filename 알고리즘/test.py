@@ -1,12 +1,13 @@
-from itertools import permutations
-
-for case in range(1, 1 + int(input())):
+for t in range(10):
+    ans = 0
     N = int(input())
-    li = []
-    for _ in range(N):
-        li.append(input())
+    arr = [list(map(int, input().split())) for _ in range(100)]
+    for i in range(100):
+        prev = 0
+        for j in range(100):
+            if arr[j][i] == 2 and prev == 1:
+                ans += 1
+            if arr[j][i] != 0:
+                prev = arr[j][i]
 
-    for cnt in range(1, N):
-        for per in permutations(li, cnt):
-            print(per)
-        # break
+    print(f"#{t+1} {ans}")
