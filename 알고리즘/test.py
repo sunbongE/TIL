@@ -1,10 +1,12 @@
+from itertools import permutations
+
 for case in range(1, 1 + int(input())):
-    ans = 0
-    n = int(input())
-    li = list(map(int, input().split()))
-    avg = sum(li) // n
-    for num in li:
-        if avg >= num:
-            ans += 1
-    print(f"#{case}", end=" ")
-    print(ans)
+    N = int(input())
+    li = []
+    for _ in range(N):
+        li.append(input())
+
+    for cnt in range(1, N):
+        for per in permutations(li, cnt):
+            print(per)
+        # break
