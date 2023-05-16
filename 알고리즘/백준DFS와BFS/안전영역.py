@@ -40,3 +40,37 @@ for h in range(100):  # 0~99 까지 높이
     v = [[0] * N for i in range(N)]  # 각 높이마다 방문 초기화
     ans = max(ans, solve(h))
 print(ans)
+# ========================내풀이========================================
+
+from collections import deque
+from pprint import pprint
+
+
+def bfs(i, j):
+    q = deque()
+    q.append((i, j))
+    while q:
+        ci, cj = q.popleft()
+        # 4방향 탐색
+        for di, dj in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            ni, nj = ci + di, dj + cj
+            if 0 <= ni < N and 0 <= nj < N and v[ni][nj] == 0 and arr[ni][nj] > H:
+                q.append((ni, nj))
+                v[ni][nj] = 1
+    # pprint(v)
+
+
+N = int(input())
+arr = [list(map(int, input().split())) for _ in range(N)]
+ans = 0
+for H in range(101):
+    v = [[0] * N for _ in range(N)]  # 방문처리.
+    cnt = 0
+    for i in range(N):
+        for j in range(N):
+            if arr[i][j] > H and not v[i][j]:
+                v[i][j] = 1
+                bfs(i, j)
+                cnt += 1
+    ans = max(ans, cnt)
+print(ans)
