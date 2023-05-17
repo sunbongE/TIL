@@ -14,7 +14,7 @@ def solve(ci, cj, dr):
                     break
             else:  # 모든 방향이 청소됐으면 후진
                 bi, bj = ci - di[dr], cj - dj[dr]
-                if arr[bi][bj] == 1:
+                if arr[bi][bj] == 1:  # 후진 못하면 리턴
                     return cnt
                 else:
                     ci, cj = bi, bj  # 후진.
@@ -22,7 +22,7 @@ def solve(ci, cj, dr):
 
 N, M = map(int, input().split())
 r, c, d_idx = map(int, input().split())
-t_idx = d_idx  # 확인용
+
 di = [-1, 0, 1, 0]
 dj = [0, 1, 0, -1]
 arr = [list(map(int, input().split())) for _ in range(N)]
