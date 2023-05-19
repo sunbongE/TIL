@@ -1,12 +1,18 @@
-n, k = map(int, input().split())
-result = []
-nums = [a for a in range(1, n + 1)]
-c = 0
-idx = 0
-while len(nums) > 0:
-    idx = (idx + k - 1) % len(nums)
-    result.append(str(nums.pop(idx)))
+w, h = map(int, input().split())
+p, q = map(int, input().split())
+t = int(input())
 
-print("<", end="")
-print(", ".join(result), end="")
-print(">")
+a = (p + t) // w
+b = (q + t) // h
+print("a", a, "b", b)
+if a % 2 == 0:
+    x = (p + t) % w
+else:
+    x = w - (p + t) % w
+
+if b % 2 == 0:
+    y = (q + t) % h
+else:
+    y = h - (q + t) % h
+
+print(x, y)
