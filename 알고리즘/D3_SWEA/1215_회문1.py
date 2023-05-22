@@ -13,7 +13,7 @@ for case in range(1, 11):
     cnt = 0
     arr = [list(map(str, input())) for _ in range(8)]
     n_arr = [[] for _ in range(8)]
-    for x in range(8):
+    for x in range(8):  # 회전한 arr 생성
         for y in range(8):
             n_arr[x].append(arr[y][x])
 
