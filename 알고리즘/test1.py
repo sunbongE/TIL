@@ -1,36 +1,9 @@
-# # # import sys
+N = int(input())
 
-# # # input = sys.stdin.readline
-# N, K = map(int, input().split())
-
-# li = [list(map(int, input().split())) for _ in range(N)]
-# dp = li[0]
-
-# for i in range(1, N):
-#     for j in range(K):
-#         dp[j] += max(li[i][:j] + li[i][j + 1 :])
-# print(max(dp))
-# # -------------------------------------
-import sys
-
-input = sys.stdin.readline
-
-N, K = map(int, input().split())
-satis = [list(map(int, input().split())) for _ in range(N)]
-
-
-dp = [[0] * K for _ in range(N)]
-dp[0] = satis[0]
-temp = sorted(dp[0])
-info = []
-
+nums = [list(map(int, input().split())) for _ in range(N)]
+# print(nums)
 for i in range(1, N):
-    tmp = (temp[-1], temp[-2])
-    for j in range(K):
-        if dp[i - 1][j] == tmp[0]:
-            dp[i][j] = satis[i][j] + tmp[1]
-        else:
-            dp[i][j] = satis[i][j] + tmp[0]
-    temp = sorted(dp[i])
-
-print(max(dp[-1]))
+    nums[i][0] = min(nums[i - 1][1], nums[i - 1][2]) + nums[i][0]
+    nums[i][1] = min(nums[i - 1][0], nums[i - 1][2]) + nums[i][1]
+    nums[i][2] = min(nums[i - 1][1], nums[i - 1][0]) + nums[i][2]
+print(min(nums[-1]))
