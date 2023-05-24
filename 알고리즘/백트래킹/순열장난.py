@@ -1,24 +1,30 @@
-from sys import exit
+def dfs(n, temp):
+    # print(temp, n)
+    # 전체 선택됨,
+    if n >= N:
+        # temp에 저장된 값의 최대값이 길이과 같으면 답이다.
+        max_num = max(list(map(int, temp)))
+        # 사용가능한 수의 개수와 같으면으로 대체
+        if max_num == sum(valid):  # len(temp) => 런타임에러
+            print(*temp)
+            exit()
+        return
 
-s = input()
-l = len(s)  # 입력 길이
-N = l if l < 10 else (l - 9) // 2 + 9  # 순열의 개수 구하기.
-D = [0] * (N + 1)  # 방문 표시.
+    # 1의 자리와 2의 자리 수를 조회해야한다.
+    # 만약 valid에 처리가 되어있으면 2자리를 조회해야한다.
+    for i in range(1, 3):
+        if n + i <= N:
+            num = nums[n : n + i]
+            # print(num)
+            if num[0] != 0:  # 왼쪽에 0이 오면 안된다.
+                num = int(num)
+                if num <= 50 and not valid[num]:  # 사용 가능하다면
+                    valid[num] = 1
+                    dfs(n + i, temp + [num])  # 더한 숫자의 개수만큼 n을 증가시킨다.
+                    valid[num] = 0
 
 
-def DFS(idx, path):
-    if idx >= l and sum(D[1:]) == N:  # 순열 개수만큼 방문된경우
-        print(*path)
-        exit(0)
-    for i in range(1, 3):  # 1~2까지 1의 자리 2의 자리 조회
-        if idx + i <= l:  # 인덱스 범위내
-            n = s[idx : idx + i]
-            if n[0] != 0:  # 0이 아니면
-                n = int(n)
-                if n <= N and not D[n]:  # 범위 내, 방문안됨
-                    D[n] = 1
-                    DFS(idx + i, path + [n])
-                    D[n] = 0
-
-
-DFS(0, [])
+nums = input()
+N = len(nums)  # 입력 길이
+valid = [0] * 51  # 나올 수 있는 수열 전체를 기록
+dfs(0, [])
