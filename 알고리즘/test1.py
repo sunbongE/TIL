@@ -1,24 +1,22 @@
-# import sys
+H, W = map(int, input().split())
 
-# input = sys.stdin.readline
-# target = input().strip()
-# word = input().strip()
-# L1 = len(target)
-# L2 = len(word)
+H_list = list(map(int, input().split()))
 
-# dogam = dict()
-
-# for i in range(0, L1 - L2 + 1):
-#     dogam[target[i : i + L2]] = 1
-
-# ans = dogam.get(word, 0)
-# print(ans)
-
-n, k = map(int, input().split())
-coins = [int(input()) for _ in range(n)]
-dp = [0] * (k + 1)
-dp[0] = 1
-for coin in coins:
-    for i in range(coin, k + 1):
-        dp[i] += dp[i - coin]
-print(dp[k])
+# 최대값의 인덱스
+maxH_idx = H_list.index(max(H_list))
+ans = 0  # 답
+now_H = 0
+# 정방향
+for i in range(maxH_idx):
+    if H_list[i] > now_H:
+        now_H = H_list[i]
+        continue
+    ans += now_H - H_list[i]
+# 역방향
+now_H = 0
+for i in range(W - 1, maxH_idx - 1, -1):
+    if H_list[i] > now_H:
+        now_H = H_list[i]
+        continue
+    ans += now_H - H_list[i]
+print(ans)
