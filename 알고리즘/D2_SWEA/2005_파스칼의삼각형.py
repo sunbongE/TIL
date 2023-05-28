@@ -23,8 +23,7 @@ for _ in range(int(input())):
     for idx in range(1, n + 1):
         print(*triangle[idx])  # 리스트에 * 이런 별표를 붙이면 리스트가 풀려서 출력된다. 즉, [1,2] => 1,2 요러케
 
-
-# 더 깔끔한 풀이
+# =======더 깔끔한 풀이===============================================================================
 for case in range(int(input())):
     n = int(input())
     arr = [[0] * (n + 1) for _ in range(n + 1)]
