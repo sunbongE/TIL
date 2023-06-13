@@ -7,14 +7,17 @@ for _ in range(10):
     N = int(input())
     buildings = list(map(int, input().split()))
     for i in range(2, N - 2):
+        # 양옆으로 내가 가장 큰 값인지 확인한다.
         if (
             buildings[i] > buildings[i - 2]
             and buildings[i] > buildings[i - 1]
             and buildings[i] > buildings[i + 1]
             and buildings[i] > buildings[i + 2]
         ):
+            # 타켓은 양옆중 가장 큰 값이된다.
             target = max(
                 buildings[i - 2], buildings[i - 1], buildings[i + 2], buildings[i + 1]
             )
+            # 답 = 내값 - 타켓
             ans += buildings[i] - target
     print(f"#{_+1} {ans}")
