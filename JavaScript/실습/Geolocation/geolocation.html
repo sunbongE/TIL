@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geolocation 연습</title>
+</head>
+
+<body>
+    <div>
+        <h1 style="text-align: center;">현재 위치 받아오기.</h1>
+        <button id="stop_btn">Stop</button>
+    </div>
+    <script>
+        // console.log()
+        const options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0,
+        };
+
+        // function success(pos) {
+        //     const crd = pos.coords;
+        //     console.log("Your current position is:");
+        //     console.log(`Latitude : ${crd.latitude}`);
+        //     console.log(`Longitude: ${crd.longitude}`);
+        //     console.log(`More or less ${crd.accuracy} meters.`);
+        // }
+
+
+        // function error(err) {
+        //     console.warn(`ERROR(${err.code}): ${err.message}`);
+        // }
+        // navigator.geolocation.getCurrentPosition(success, error, options
+        // );
+
+        var id = navigator.geolocation.watchPosition((position) => {
+            const crd = position.coords; // 고도 위도등 정보
+            console.log(`Time: ${Date(position.timestamp).toLocaleString()}`); // 시간형식으로 검색된 시간 추출.
+            console.log("Your current position is:");
+            console.log(`Latitude : ${crd.latitude}`);//위도
+            console.log(`Longitude: ${crd.longitude}`);//경도
+            console.log(`More or less ${crd.accuracy} meters.`);//정확도
+
+            // 스탑버튼 구현
+            const stopBtn = document.querySelector('#stop_btn');
+            stopBtn.addEventListener('click', () => {
+                navigator.geolocation.clearWatch(id);
+                console.log('감시 중지')
+            })
+            console.log(position)
+        })
+    </script>
+</body>
+
+</html>
